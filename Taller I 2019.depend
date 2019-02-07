@@ -1,0 +1,46 @@
+# depslib dependency file v1.0
+1543777036 source:c:\ude\taller i 2019\archivo.cpp
+	"Archivo.h"
+
+1543777036 c:\ude\taller i 2019\archivo.h
+	"String.h"
+
+1549481385 c:\ude\taller i 2019\string.h
+	"Boolean.h"
+
+1536618903 c:\ude\taller i 2019\boolean.h
+	<stdio.h>
+
+1536619005 source:c:\ude\taller i 2019\boolean.cpp
+	"Boolean.h"
+
+1543783490 source:c:\ude\taller i 2019\string.cpp
+	"String.h"
+
+1549486603 source:c:\ude\taller i 2019\main.cpp
+	"Menu.h"
+
+1549486545 c:\ude\taller i 2019\menu.h
+	"Archivo.h"
+	"Errores.h"
+	"Comandos.h"
+	"Arbol.h"
+
+1549487136 c:\ude\taller i 2019\errores.h
+	"String.h"
+
+1549487316 c:\ude\taller i 2019\comandos.h
+	"String.h"
+
+1549485647 c:\ude\taller i 2019\arbol.h
+	"Polinomio.h"
+
+1549487701 c:\ude\taller i 2019\polinomio.h
+	"ListaTerminos.h"
+
+1549487761 c:\ude\taller i 2019\listaterminos.h
+	"Termino.h"
+
+1549482870 c:\ude\taller i 2019\termino.h
+	"String.h"
+
