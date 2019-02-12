@@ -6,6 +6,7 @@
 typedef struct {
     int coeficiente;
     int exponente;
+    char signo;
 } Termino;
 
 //CARGAR/MOSTRAR

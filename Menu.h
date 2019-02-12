@@ -2,9 +2,7 @@
 #define MENU_H_INCLUDED
 
 #include "Archivo.h"
-#include "Errores.h"
 #include "Comandos.h"
-#include "Arbol.h"
 
 
 

@@ -20,17 +20,16 @@
 1549486603 source:c:\ude\taller i 2019\main.cpp
 	"Menu.h"
 
-1549486545 c:\ude\taller i 2019\menu.h
+1550006450 c:\ude\taller i 2019\menu.h
 	"Archivo.h"
-	"Errores.h"
 	"Comandos.h"
-	"Arbol.h"
 
 1549487136 c:\ude\taller i 2019\errores.h
 	"String.h"
 
-1549487316 c:\ude\taller i 2019\comandos.h
-	"String.h"
+1550006450 c:\ude\taller i 2019\comandos.h
+	"Errores.h"
+	"Arbol.h"
 
 1549485647 c:\ude\taller i 2019\arbol.h
 	"Polinomio.h"
@@ -41,6 +40,6 @@
 1549487761 c:\ude\taller i 2019\listaterminos.h
 	"Termino.h"
 
-1549482870 c:\ude\taller i 2019\termino.h
+1549581292 c:\ude\taller i 2019\termino.h
 	"String.h"
 
