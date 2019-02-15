@@ -58,10 +58,12 @@ boolean ValidarAlfanumerico(String s_1);
 //se encontro caracteres extraños. Esto validara que los posibles terminos solo
 //tengan numeros, y que los mismos sean enteros, porque si se ingresa un “.” o una
 //“,” los caraceres se reconoceran como invalidos.
+//Tambien servira para verificar que en el comando evaluar se haya ingresado un entero
 boolean ValidarSoloEnteros(String s_1);
 
 //Se valida que minimamente se haya ingresado algun numero. Porque la funcion
 //ValidarSoloEnteros puede dar true si se ingreso solo espacios
+//Tambien servira para verificar que en el comando evaluar se haya ingresado un entero
 boolean ValidarExisteUnNumero(String s_1);
 
 //A raiz de un char que representa un caracter del 0-9, se deuelve el mismo en formato numero
@@ -83,6 +85,9 @@ boolean ValidarPrimerTermino(String s_1);
 //validos, habiendo eliminado previamente del string el nombre del comando y el
 //nombre del polinomio a crear.
 int ContarTerminos(String s_1);
+
+//A raiz de un string que contiene una posible extension de un archivo, se valida si la misma es correcta (txt)
+boolean ValidarExtension(String s_1);
 
 
 #endif // STRING_H_INCLUDED

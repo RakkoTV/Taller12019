@@ -20,8 +20,19 @@ void Mostrar_Termino(Termino T);
 //SELECTORAS
 int DarCoeficiente(Termino T);
 int DarExponente(Termino T);
+//Grabara en el char pasado un signo
+void DarSigno(char &s_1);
 
 //OPERACIONES ESPECIFICAS
+//Se deja nulo el termino
+void BorrarTermino(Termino &T);
 
+//Guardara el Termino dentro del archivo apuntado por stream
+//PRECONDICION: El mismo ya fue abierto previamente, y en modo "wb" o "ab"
+void BajarTermino(FILE * stream, Termino T_1);
+
+//Leera del archivo apuntado por stream, y lo levantara en memoria en Termino
+//PRECONDICION: stream ya fue abierto previamente, y en modo "rb"
+void SubirTermino(FILE * stream, Termino &T_1);
 
 #endif // TERMINO_H_INCLUDED

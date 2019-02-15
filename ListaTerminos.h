@@ -27,5 +27,20 @@ void Resto(Lista &L);
 //PRECONDICION: El string pasado debe estar previamente validado y no puede contener ni el nombre del comando ni el nombre del polinomio
 void Crear_Lista_Desde_String(Lista &L, String s_1);
 
+//Despliega por pantalla (sin el \n) el conjunto de terminos guardados en esta lista. Se le agrega un espacio al final por cada
+//termino que se hubiera almacenado.
+void MostrarLista(Lista L);
+
+//Se elimina termino a termino todo lo guardado en esa lista. Esto se da para eliminar toda la memoria dinamica almacenada
+//en esta lista, dejando nulos todos los punteros y estructuras de terminos.
+void BorrarLista(Lista &L);
+
+//Guardara todos los terminos de la lista dentro del archivo apuntado por stream. Para cada termino, se invocara la funcion BajarTermino
+//PRECONDICION: El mismo ya fue abierto previamente, y en modo "wb" o "ab"
+void BajarLista(FILE * stream, Lista L);
+
+//Leera del archivo apuntado por stream, y lo levantara en memoria como una lista de Terminos. Para cada termino, se utilizara a funcion SubirTermino
+//PRECONDICION: stream ya fue abierto previamente, y en modo "rb"
+void SubirLista(FILE * stream, Lista &L);
 
 #endif // LISTATERMINOS_H_INCLUDED
