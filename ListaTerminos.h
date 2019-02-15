@@ -23,5 +23,9 @@ Termino Primero(Lista L);
 void Resto(Lista &L);
 
 //FUNCIONES ESPECIFICAS
+//A raiz de un string de terminos, se crea una lista conteniendolos.
+//PRECONDICION: El string pasado debe estar previamente validado y no puede contener ni el nombre del comando ni el nombre del polinomio
+void Crear_Lista_Desde_String(Lista &L, String s_1);
+
 
 #endif // LISTATERMINOS_H_INCLUDED

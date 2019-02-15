@@ -50,4 +50,39 @@ void Bajar_String(FILE * stream, String string_1);
 //PRECONDICION: stream ya fue abiert previamente, y en modo "rb"
 void Subir_String(FILE * stream, String &string_1);
 
+//--> FUNCIONES AUXILIARES DEL PARSING
+//A raiz de un string, valida si el mismo es o no un alfanumerico
+boolean ValidarAlfanumerico(String s_1);
+
+//Se lee una cadena de caracteres de posibles terminos, y se devuelve TRUE/FALSE si
+//se encontro caracteres extraños. Esto validara que los posibles terminos solo
+//tengan numeros, y que los mismos sean enteros, porque si se ingresa un “.” o una
+//“,” los caraceres se reconoceran como invalidos.
+boolean ValidarSoloEnteros(String s_1);
+
+//Se valida que minimamente se haya ingresado algun numero. Porque la funcion
+//ValidarSoloEnteros puede dar true si se ingreso solo espacios
+boolean ValidarExisteUnNumero(String s_1);
+
+//A raiz de un char que representa un caracter del 0-9, se deuelve el mismo en formato numero
+//PRECONDICION: c_1 solo puede tener caraceres que represente un numero del 0-9
+int ConvertirCaracter(char c_1);
+
+//A raiz de un string que represente un numero positivo o negativo, se convierte al mismo en formato numero.
+//PRECONDICION: El string no puede representar un numero mayor a lo maximo que permie almacenar el long int.
+long int PasarStringANumero(String s_1);
+
+//En caso de que la cantidad de terminos separados por espacio, sea 2 o mas, se
+//debe validar que el primer termino sea distinto de 0. Esto devolvera TRUE/FALSE si se cumple eso dado
+//un string previamente semi-validado y cortado para que solo incluya los posibles terminos
+boolean ValidarPrimerTermino(String s_1);
+
+//A raiz de un string que contiene el conjunto de terminos, esta funcion realiza un conteo de los
+//mismos
+//PRECONDICION: Se debe validar previamente que el string dado contenga terminos
+//validos, habiendo eliminado previamente del string el nombre del comando y el
+//nombre del polinomio a crear.
+int ContarTerminos(String s_1);
+
+
 #endif // STRING_H_INCLUDED
