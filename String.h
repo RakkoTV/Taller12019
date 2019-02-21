@@ -88,6 +88,8 @@ int ContarTerminos(String s_1);
 
 //A raiz de un string que contiene una posible extension de un archivo, se valida si la misma es correcta (txt)
 boolean ValidarExtension(String s_1);
+//Se cuentan numeros del string
+int contarnumero(String string_1);
 
 
 #endif // STRING_H_INCLUDED

@@ -26,6 +26,18 @@ int strlar(String string_1)
     return i;
 }
 
+//Devuelve el largo de un string. Se entiende por largo, la cantidad de caracteres antes del espacio.
+int contarnumero(String string_1)
+{
+    int i=0;
+
+    while( string_1[i] != '' || '\0')
+        i++;
+
+    return i;
+}
+
+
 //Recibe dos strings y copia el segundo en el primero.
 void strcop(String &string_1, String string_2)
 {
@@ -224,4 +236,60 @@ void Subir_String(FILE * stream, String &string_1)
     strcop(string_1, aux);
     strdestruir(aux);
 }
+
+
+
+int ConvertirCaracter(char c_1)
+{
+    switch(c_1)
+    {
+    case '0':   return 0;
+                 break;
+    case '1':  return 1;
+                 break;
+    case '2':  return 2;
+                 break;
+
+    case '3':   return 3;
+                 break;
+
+    case '4':    return 4;
+                 break;
+
+    case '5':   return 5;
+                 break;
+    case '6':   return 6;
+                 break;
+    case '7':   return 7;
+                 break;
+    case '8':  return 8;
+                 break;
+    case '9':   return 9;
+                 break;
+    default
+    return 45;
+    break;
+    }
+
+
+
+
+    }
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+}
+
+
 
