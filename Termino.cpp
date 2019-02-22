@@ -1,29 +1,28 @@
 #include "Termino.h"
 
 
-void Cargar_Termino_Desde_String(Termino &T, String s_1)
+void Cargar_Termino_Desde_String(Termino &T, String s_1)/*
 {
     array_dinamico arre,arre1;
     int i=0, cant=0, j;
 
-     while(s_1[i] !='\O')
+     while(s_1[i] !='\0')
      {
-         if(s_1[i] !='')
+         if(s_1[i] != ' ')
          {
              //capaz que poner una procedimiento que contemple que el usuario ponga varios espacios
-             if (ConvertirCaracter(s_1[i]==45)
-                 T.signo='-';
+             if (ConvertirCaracter(s_1[i]==45))
+                 T.signo = '-';
 
 
                     else
                        {
-                        j=i;
                         cant=contarnumero(s_1);
                         CrearAD(arre,cant);
-                        for(j;j<cant;j++)
-                        arre[j]=ConvertirCaracter(s_1[j]);
-                        DevuelveINT(arre[j],cant)
-
+                        for(j=i;j<cant;j++)
+                            arre[j]=ConvertirCaracter(s_1[j]);
+                        DevuelveINT(arre[j],cant);
+*/
 
                        }
 
@@ -42,7 +41,7 @@ void Cargar_Termino_Desde_String(Termino &T, String s_1)
      }
 
 }
-
+*/
 
  int DevuelveINT (arre a, int cant)
 {

@@ -32,26 +32,21 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Arbol.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="Arbol.h" />
 		<Unit filename="Archivo.cpp" />
 		<Unit filename="Archivo.h" />
+		<Unit filename="ArreglodinamicoNumero.cpp" />
+		<Unit filename="ArreglodinamicoNumero.h" />
 		<Unit filename="Boolean.cpp" />
 		<Unit filename="Boolean.h" />
-		<Unit filename="Comandos.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="Errores.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="Comandos.h" />
+		<Unit filename="Errores.h" />
 		<Unit filename="ListaTerminos.h" />
-		<Unit filename="Menu.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="Menu.h" />
 		<Unit filename="Polinomio.h" />
 		<Unit filename="String.cpp" />
 		<Unit filename="String.h" />
+		<Unit filename="Termino.cpp" />
 		<Unit filename="Termino.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>

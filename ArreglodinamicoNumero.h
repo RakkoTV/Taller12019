@@ -1,6 +1,8 @@
 #ifndef ARREGLODINAMICONUMERO_H_INCLUDED
 #define ARREGLODINAMICONUMERO_H_INCLUDED
 
+#include "Boolean.h"
+
 typedef struct {
                 int * arre;
                 int tamanio;
@@ -18,7 +20,7 @@ void Mostrar(array_dinamico ad);
 
 //Dados un arreglo dinámico y un valor entero, determinar si dicho valor
 //pertenece al arreglo o no.
-boolean Pertenece(array_dinamico ad, int valor);
+//boolean Pertenece(array_dinamico ad, int valor);
 
 //Dado un arreglo dinámico, devolver el promedio de los valores
 //almacenados en él.

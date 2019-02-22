@@ -30,8 +30,8 @@ int strlar(String string_1)
 int contarnumero(String string_1)
 {
     int i=0;
-
-    while( string_1[i] != '' || '\0')
+    printf("%c",string_1[0]);
+    while( (string_1[i] != ' ') /*|| (string_1[i] != '\0')*/)
         i++;
 
     return i;
@@ -266,7 +266,7 @@ int ConvertirCaracter(char c_1)
                  break;
     case '9':   return 9;
                  break;
-    default
+    default:
     return 45;
     break;
     }
@@ -282,14 +282,13 @@ int ConvertirCaracter(char c_1)
 
 
 
-}
 
 
 
 
 
 
-}
+
 
 
 
