@@ -237,54 +237,159 @@ void Subir_String(FILE * stream, String &string_1)
     strdestruir(aux);
 }
 
+//A raiz de un string, valida si el mismo es o no un alfanumerico
+boolean ValidarAlfanumerico(String string_1)
+{
+    int i=0;
+    boolean es_alfanumerico = TRUE;
 
+    while( (string_1[i] != '\0') && (es_alfanumerico == TRUE) )
+    {
+        if(
+          /* Letras de la A-Z */
+          ( (int(string_1[i]) >= 65) && (int(string_1[i]) <= 90) )
+        )
+            i++;
+        else
+            /* Letras de la a-z */
+            if(
+              ( (int(string_1[i]) >= 97) && (int(string_1[i]) <= 122) )
+            )
+            i++;
+            else
+                /* Numeros de 0-9 */
+                if(
+                   ( (int(string_1[i]) >= 48) && (int(string_1[i]) <= 57) )
+                )
+                    i++;
+                else
+                    /* El espacio tambien lo dara como valido */
+                    if ( (int(string_1[i]) == 32) )
+                        i++;
+                    else
+                        es_alfanumerico = FALSE;
+    }
 
+    return es_alfanumerico;
+}
+
+//Se lee una cadena de caracteres de posibles terminos, y se devuelve TRUE/FALSE si
+//se encontro caracteres extraños. Esto validara que los posibles terminos solo
+//tengan numeros, y que los mismos sean enteros, porque si se ingresa un “.” o una
+//“,” los caraceres se reconoceran como invalidos.
+//Tambien servira para verificar que en el comando evaluar se haya ingresado un entero
+boolean ValidarSoloEnteros(String string_1)
+{
+    int i=0;
+    boolean es_entero = TRUE;
+
+    while( (string_1[i] != '\0') && (es_entero == TRUE) )
+    {
+        /* Numeros de 0-9, -, o espacio */
+        if(
+            ( (int(string_1[i]) >= 48) && (int(string_1[i]) <= 57) )
+            ||
+            (int(string_1[i]) == 32)
+            ||
+            (int(string_1[i]) == 45)
+        )
+            i++;
+        else
+            es_entero = FALSE;
+    }
+
+    return es_entero;
+}
+
+//Se valida que minimamente se haya ingresado algun numero. Porque la funcion
+//ValidarSoloEnteros puede dar true si se ingreso solo espacios
+//Tambien servira para verificar que en el comando evaluar se haya ingresado un entero
+boolean ValidarExisteUnNumero(String string_1)
+{
+    int i=0;
+    boolean es_entero = TRUE;
+
+    while( (string_1[i] != '\0') && (es_entero == TRUE) )
+    {
+        /* Numeros de 0-9 solamente*/
+        if(
+            ( (int(string_1[i]) >= 48) && (int(string_1[i]) <= 57) )
+        )
+            i++;
+        else
+            es_entero = FALSE;
+    }
+
+    return es_entero;
+}
+
+//A raiz de un char que representa un caracter del 0-9, se deuelve el mismo en formato numero
+//PRECONDICION: c_1 solo puede tener caraceres que represente un numero del 0-9
 int ConvertirCaracter(char c_1)
 {
     switch(c_1)
     {
-    case '0':   return 0;
-                 break;
-    case '1':  return 1;
-                 break;
-    case '2':  return 2;
-                 break;
-
-    case '3':   return 3;
-                 break;
-
-    case '4':    return 4;
-                 break;
-
-    case '5':   return 5;
-                 break;
-    case '6':   return 6;
-                 break;
-    case '7':   return 7;
-                 break;
-    case '8':  return 8;
-                 break;
-    case '9':   return 9;
-                 break;
+    case '0':
+        return 0;
+        break;
+    case '1':
+        return 1;
+        break;
+    case '2':
+        return 2;
+        break;
+    case '3':
+        return 3;
+        break;
+    case '4':
+        return 4;
+        break;
+    case '5':
+        return 5;
+        break;
+    case '6':
+        return 6;
+        break;
+    case '7':
+        return 7;
+        break;
+    case '8':
+        return 8;
+        break;
+    case '9':
+        return 9;
+        break;
     default:
-    return 45;
-    break;
+        return 45;
+        break;
+    }
+}
+
+//A raiz de un string que represente un numero positivo o negativo, se convierte al mismo en formato numero.
+//PRECONDICION: El string no puede representar un numero mayor a lo maximo que permie almacenar el long int.
+long int PasarStringANumero(String string_1)
+{
+    boolean flagnegativo = FALSE;
+    int numerofinal = 0;
+    int contador = 0;
+
+    //Se crea el string 2 auxiliar
+    String string_2;
+    strcrear(string_2);
+
+    //Se copian todos los caracteres numericos de s_1 en s_2, eliminando cualquier espacio o simbolo neativo que hubiera entre ellos
+    int i=0,j=0;
+    while( string_1[i] != '\0' )
+    {
+        //Si es un numero del 0-9
+        if( (int(string_1[i]) >= 48) && (int(string_1[i]) <= 57) )
+        //Copio la celda del string_2 en el mismo lugar del string_1
+            string_2[i] = string_1[i];
+        i++;
     }
 
 
-
-
-    }
-
-
-
-
-
-
-
-
-
-
+}
 
 
 

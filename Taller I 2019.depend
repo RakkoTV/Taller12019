@@ -5,7 +5,7 @@
 1550008883 c:\ude\taller i 2019\archivo.h
 	"String.h"
 
-1550708572 c:\ude\taller i 2019\string.h
+1550867293 c:\ude\taller i 2019\string.h
 	"Boolean.h"
 
 1550708572 c:\ude\taller i 2019\boolean.h
@@ -14,11 +14,11 @@
 1550008883 source:c:\ude\taller i 2019\boolean.cpp
 	"Boolean.h"
 
-1550791677 source:c:\ude\taller i 2019\string.cpp
+1550869840 source:c:\ude\taller i 2019\string.cpp
 	"String.h"
 
-1550791973 source:c:\ude\taller i 2019\main.cpp
-	"stdio.h"
+1550868412 source:c:\ude\taller i 2019\main.cpp
+	"String.h"
 
 1550262212 c:\ude\taller i 2019\menu.h
 	"Comandos.h"
@@ -49,4 +49,7 @@
 
 1550791299 c:\ude\taller i 2019\arreglodinamiconumero.h
 	"Boolean.h"
+
+1550867217 source:c:\ude\taller i 2019\termino.cpp
+	"Termino.h"
 
