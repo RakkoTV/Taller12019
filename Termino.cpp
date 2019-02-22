@@ -70,3 +70,42 @@ int potencia(x,y)
 }
 
 */
+
+int DarCoeficiente(Termino T)
+{
+     return T.coeficiente;
+}
+
+int DarExponente(Termino T)
+{
+    return T.exponente;
+}
+
+char DarSigno(Termino T)
+{
+    return T.signo;
+}
+
+void Cargar_Termino_Desde_String(Termino &T, long int coeficiente, int exponente, char signo)
+{    ///aca va un for y strlargo para determinan el largo del string y recorrlo
+     if (ConvertirCaracter(signo)==45)
+           T.signo='-';
+
+          T.coeficiente=coeficiente;
+          T.exponente=exponente;
+
+}
+
+
+void Mostrar_Termino(Termino T)
+{
+    printf("%c",T.signo);
+    printf("%d \t",T.coeficiente);
+    printf("%d",T.exponente);
+
+
+}
+
+
+
+

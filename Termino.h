@@ -3,6 +3,7 @@
 
 #include "String.h"
 #include "ArreglodinamicoNumero.h"
+#include "String.h"
 
 
 typedef struct {
@@ -15,19 +16,26 @@ typedef struct {
 //La funcion carar tambien se configurara para que el dato del input sea un string previo.
 //PRECONDICION: El string pasado no puede tener ni el nombre del comando ni el del polinomio, debe haberse validado previamente
 //              y solo debe hacer referencia a un termino valido.
+
+/** Se comenta hasta que se tenga la implementacion faltante de String
 void Cargar_Termino_Desde_String(Termino &T, String s_1, int exponente);
+***/
 
+void Cargar_Termino_Desde_String(Termino &T, long int coeficiente, int exponente, char signo);
 
+//Muestra el termino ingresado
 void Mostrar_Termino(Termino T);
 
 //SELECTORAS
+// Dar Coeficiante
 int DarCoeficiente(Termino T);
+//Dar exponento
 int DarExponente(Termino T);
-//Grabara en el char pasado un signo
-void DarSigno(char &s_1);
+// Selectora dar signo
+char DarSigno(Termino T);
 
 //OPERACIONES ESPECIFICAS
-//Se deja nulo el termino
+//Se deja nulo el termino(No deberia realizarse aqui ya que termino no utiliza memoria dinamica)
 void BorrarTermino(Termino &T);
 
 //Guardara el Termino dentro del archivo apuntado por stream
