@@ -1,6 +1,6 @@
 #include "Termino.h"
 
-
+/*
 void Cargar_Termino_Desde_String(Termino &T, String s_1)/*
 {
     array_dinamico arre,arre1;
@@ -22,7 +22,7 @@ void Cargar_Termino_Desde_String(Termino &T, String s_1)/*
                         for(j=i;j<cant;j++)
                             arre[j]=ConvertirCaracter(s_1[j]);
                         DevuelveINT(arre[j],cant);
-*/
+
 
                        }
 
@@ -41,7 +41,7 @@ void Cargar_Termino_Desde_String(Termino &T, String s_1)/*
      }
 
 }
-*/
+
 
  int DevuelveINT (arre a, int cant)
 {
@@ -69,3 +69,4 @@ int potencia(x,y)
     return resultado;
 }
 
+*/
