@@ -16,7 +16,7 @@ boolean EsVacio_Lista(Lista L)
     return es;
 }
 
-
+//
 void InsFront(Lista &L, int T)
 {
     Lista aux=new nodo;
