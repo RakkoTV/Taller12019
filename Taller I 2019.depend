@@ -5,7 +5,7 @@
 1550008883 c:\ude\taller i 2019\archivo.h
 	"String.h"
 
-1550867293 c:\ude\taller i 2019\string.h
+1551127982 c:\ude\taller i 2019\string.h
 	"Boolean.h"
 
 1550708572 c:\ude\taller i 2019\boolean.h
@@ -14,10 +14,10 @@
 1550008883 source:c:\ude\taller i 2019\boolean.cpp
 	"Boolean.h"
 
-1550869840 source:c:\ude\taller i 2019\string.cpp
+1551129456 source:c:\ude\taller i 2019\string.cpp
 	"String.h"
 
-1550868412 source:c:\ude\taller i 2019\main.cpp
+1551129527 source:c:\ude\taller i 2019\main.cpp
 	"String.h"
 
 1550262212 c:\ude\taller i 2019\menu.h
@@ -37,19 +37,26 @@
 1550264455 c:\ude\taller i 2019\polinomio.h
 	"ListaTerminos.h"
 
-1550264080 c:\ude\taller i 2019\listaterminos.h
+1551121777 c:\ude\taller i 2019\listaterminos.h
 	"Termino.h"
 
-1550708572 c:\ude\taller i 2019\termino.h
+1551122208 c:\ude\taller i 2019\termino.h
 	"String.h"
 	"ArreglodinamicoNumero.h"
+	"String.h"
 
-1550708572 source:c:\ude\taller i 2019\arreglodinamiconumero.cpp
+1551121777 source:c:\ude\taller i 2019\arreglodinamiconumero.cpp
 	"ArreglodinamicoNumero.h"
 
-1550791299 c:\ude\taller i 2019\arreglodinamiconumero.h
+1551121777 c:\ude\taller i 2019\arreglodinamiconumero.h
 	"Boolean.h"
 
-1550867217 source:c:\ude\taller i 2019\termino.cpp
+1551122208 source:c:\ude\taller i 2019\termino.cpp
 	"Termino.h"
+
+1551121777 source:c:\ude\taller i 2019\comandos.cpp
+	"Comandos.h"
+
+1551121777 source:c:\ude\taller i 2019\listaterminos.cpp
+	"ListaTerminos.h"
 

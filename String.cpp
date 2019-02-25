@@ -26,17 +26,20 @@ int strlar(String string_1)
     return i;
 }
 
-//Devuelve el largo de un string. Se entiende por largo, la cantidad de caracteres antes del espacio.
-int contarnumero(String string_1)
+//Devuelve el largo de un string, basado solo en los caracteres enteros que pueda tener.
+int strlar_int(String string_1)
 {
-    int i=0;
-    printf("%c",string_1[0]);
-    while( (string_1[i] != ' ') /*|| (string_1[i] != '\0')*/)
+    int i=0, j=0;
+
+    while( string_1[i] != '\0' )
+    {
+        if ( (int(string_1[i]) >= 48) && (int(string_1[i]) <= 57) )
+            j++;
         i++;
+    }
 
-    return i;
+    return j;
 }
-
 
 //Recibe dos strings y copia el segundo en el primero.
 void strcop(String &string_1, String string_2)
@@ -365,32 +368,116 @@ int ConvertirCaracter(char c_1)
     }
 }
 
+//Funcion auxiliar para calcular las potencias de base 10
+long int Potencia10(long int y)
+{
+    long int resultado=1;
+    long int i=0;
+
+    for(i; i<y; i++)
+        resultado=resultado*10;
+
+    return resultado;
+}
+
 //A raiz de un string que represente un numero positivo o negativo, se convierte al mismo en formato numero.
 //PRECONDICION: El string no puede representar un numero mayor a lo maximo que permie almacenar el long int.
 long int PasarStringANumero(String string_1)
 {
     boolean flagnegativo = FALSE;
-    int numerofinal = 0;
-    int contador = 0;
+    int contador_aux = 0;
+    long int numerofinal = 0;
+    int largo_int = strlar_int(string_1);
 
-    //Se crea el string 2 auxiliar
+    //Se crea el string 2 auxiliar, con el tamaño correspondiente solo a los numeros enteros del string_1
     String string_2;
-    strcrear(string_2);
+    string_2 = new char[largo_int+1];
+    string_2[largo_int] = '\0';
 
-    //Se copian todos los caracteres numericos de s_1 en s_2, eliminando cualquier espacio o simbolo neativo que hubiera entre ellos
+    //Se copian todos los caracteres numericos de s_1 en s_2, eliminando cualquier espacio o simbolo negativo que hubiera entre ellos
     int i=0,j=0;
     while( string_1[i] != '\0' )
     {
         //Si es un numero del 0-9
         if( (int(string_1[i]) >= 48) && (int(string_1[i]) <= 57) )
-        //Copio la celda del string_2 en el mismo lugar del string_1
-            string_2[i] = string_1[i];
+        {
+            //Copio la celda del string_2 en el mismo lugar del string_1
+            string_2[j] = string_1[i];
+            j++;
+        }
+        else
+            //Si es un -, se activa el flag negativo
+            if (int(string_1[i]) == 45)
+                flagnegativo = TRUE;
         i++;
     }
 
+    //Llegado a este punto, tendre en string_2 el string solo de enteros
+    while(j > 0)
+    {
+        numerofinal =  numerofinal + (ConvertirCaracter(string_2[contador_aux]) * Potencia10(j-1));
 
+        //Como se va calculando la potencia desde el largo hasta el 0, se realiza la resta para atras
+        j--;
+        //Pero como se lee el string_2 desde el 0 hasta el maxlargo, se aumentara al contador
+        contador_aux++;
+        //No preciso establcer nada con el \0, porque el mismo nunca sera leido porque j se pondra en ese instante en 0
+    }
+
+    //Ahora, solo restara establecer si el numero requerido es negativo o no
+    if (flagnegativo == TRUE)
+    {
+        //Si es negativo, se lo resta 3 veces para formarlo en forma negativa
+        numerofinal = numerofinal - numerofinal - numerofinal;
+    }
+
+    //Lo devuelvo como numero final long int
+    return numerofinal;
 }
 
+//A raiz de un string que contiene el conjunto de terminos, esta funcion realiza un conteo de los
+//mismos
+//PRECONDICION: Se debe validar previamente que el string dado contenga terminos
+//validos, habiendo eliminado previamente del string el nombre del comando y el
+//nombre del polinomio a crear.
+int ContarTerminos(String string_1)
+{
+    int resultado=0, i=0;
+
+    while( string_1[i] != '\0' )
+    {
+        //Se define como posible termino en la lista pasada, al conjunto numerico compuesto por:
+        //  123  -1-123  1
+        //En el caso de arriba, existen 3 terminos separados por espacios al inicio y al final. Cada termino sera contado
+        //como tal cuando el caracter actual sea un numero o un -, y el caracter anterior sea un espacio o el inicio del string
+        if (
+            (
+             ( (int(string_1[i]) >= 48) && (int(string_1[i]) <= 57) )
+             ||
+             (int(string_1[i]) == 45)
+            )
+            &&
+            ( (i == 0) || ( string_1[i-1] == ' ' ) )
+           )
+           resultado++;
+
+        i++;
+    }
+
+    return resultado;
+}
+
+//En caso de que la cantidad de terminos separados por espacio, sea 2 o mas, se
+//debe validar que el primer termino sea distinto de 0. Esto devolvera TRUE/FALSE si se cumple eso dado
+//un string previamente semi-validado y cortado para que solo incluya los posibles terminos
+boolean ValidarPrimerTermino(String string_1)
+{
+    boolean resultado = TRUE;
+
+
+
+
+}
 
 
 

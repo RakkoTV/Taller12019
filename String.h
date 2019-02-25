@@ -15,6 +15,9 @@ void strdestruir(String &string_1);
 //Devuelve el largo de un string. Se entiende por largo, la cantidad de caracteres antes del carácter nulo.
 int strlar(String string_1);
 
+//Devuelve el largo de un string, basado solo en los caracteres enteros que pueda tener.
+int strlar_int(String string_1);
+
 //Recibe dos strings y copia el segundo en el primero.
 void strcop(String &string_1, String string_2);
 
@@ -74,11 +77,6 @@ int ConvertirCaracter(char c_1);
 //PRECONDICION: El string no puede representar un numero mayor a lo maximo que permie almacenar el long int.
 long int PasarStringANumero(String string_1);
 
-//En caso de que la cantidad de terminos separados por espacio, sea 2 o mas, se
-//debe validar que el primer termino sea distinto de 0. Esto devolvera TRUE/FALSE si se cumple eso dado
-//un string previamente semi-validado y cortado para que solo incluya los posibles terminos
-boolean ValidarPrimerTermino(String string_1);
-
 //A raiz de un string que contiene el conjunto de terminos, esta funcion realiza un conteo de los
 //mismos
 //PRECONDICION: Se debe validar previamente que el string dado contenga terminos
@@ -86,10 +84,13 @@ boolean ValidarPrimerTermino(String string_1);
 //nombre del polinomio a crear.
 int ContarTerminos(String string_1);
 
+//En caso de que la cantidad de terminos separados por espacio, sea 2 o mas, se
+//debe validar que el primer termino sea distinto de 0. Esto devolvera TRUE/FALSE si se cumple eso dado
+//un string previamente semi-validado y cortado para que solo incluya los posibles terminos
+boolean ValidarPrimerTermino(String string_1);
+
 //A raiz de un string que contiene una posible extension de un archivo, se valida si la misma es correcta (txt)
 boolean ValidarExtension(String string_1);
-//Se cuentan numeros del string
-int contarnumero(String string_1);
 
 
 #endif // STRING_H_INCLUDED

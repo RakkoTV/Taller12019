@@ -39,8 +39,10 @@
 		<Unit filename="ArreglodinamicoNumero.h" />
 		<Unit filename="Boolean.cpp" />
 		<Unit filename="Boolean.h" />
+		<Unit filename="Comandos.cpp" />
 		<Unit filename="Comandos.h" />
 		<Unit filename="Errores.h" />
+		<Unit filename="ListaTerminos.cpp" />
 		<Unit filename="ListaTerminos.h" />
 		<Unit filename="Menu.h" />
 		<Unit filename="Polinomio.h" />
