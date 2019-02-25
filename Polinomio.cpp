@@ -23,10 +23,24 @@ void Mostrar_Polinomio(Polinomio P)
     Mostrarlista(P.Lterminos);
 }
 
-void DarNombre(Polinomio P, String &s_1);
-Lista DarTerminos(Polinomio P);
+void DarNombre(Polinomio P, String &s_1)
+{
+    strcop(P.nombre,s_1);
+}
 
-void BajarPolinomio(FILE * stream, Polinomio P);
+Lista DarTerminos(Polinomio P)
+{
+    return P.Lterminos;
+}
 
-Polinomio SubirPolinomio(FILE * stream, String s_1);
+void BajarPolinomio(Polinomio P, String nomArch)
+{
+
+}
+
+
+Polinomio SubirPolinomio(FILE * stream, String s_1)
+{
+
+}
 

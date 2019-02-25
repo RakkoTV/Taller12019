@@ -19,7 +19,10 @@ void CrearPoli(Polinomio &Poli);
 void Mostrar_Polinomio(Polinomio P);
 
 //SELECTORAS
+
+//Mostrar Nombre de Polinomio
 void DarNombre(Polinomio P, String &s_1);
+//Devolver Lista de Terminos
 Lista DarTerminos(Polinomio P);
 
 //OPERACIONES ESPECIFICAS
