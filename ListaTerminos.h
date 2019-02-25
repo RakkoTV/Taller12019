@@ -4,7 +4,7 @@
 #include "Termino.h"
 
 typedef struct nodoL {
-    Termino info;
+   /* Termino*/ int info;
     nodoL * sig;
 } nodo;
 
@@ -16,7 +16,7 @@ void Crear_Lista(Lista &L);
 //Saber si la lista está vacía
 boolean EsVacio_Lista(Lista L);
 //Inserta un termino al principio de la lista
-void InsFront(Lista &L, Termino T);
+void InsFront(Lista &L, int T);
 //Devuelve el primer valor almacenado en la lista
 Termino Primero(Lista L);
 //Borra el primer valor almacenado en la lista
