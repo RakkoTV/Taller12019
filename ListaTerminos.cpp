@@ -17,7 +17,7 @@ boolean EsVacio_Lista(Lista L)
 }
 
 
-void InsFront(Lista &L, int T)
+void InsFront(Lista &L, Termino T)
 {
     Lista aux=new nodo;
     aux->info=T;
@@ -35,6 +35,16 @@ void Resto(Lista &L)
     Lista aux=L;
     L=L->sig;
     aux;
+}
+
+void Mostrarlista (Lista L)
+{
+    while(L!=NULL)
+    {
+        Mostrar_Termino(L->info);
+        L=L->sig;
+
+    }
 }
 
 

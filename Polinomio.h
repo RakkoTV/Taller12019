@@ -5,7 +5,7 @@
 
 typedef struct {
     String nombre;
-    Lista terminos;
+    Lista Lterminos;
 } Polinomio;
 
 //CARGAR/MOSTRAR
@@ -13,6 +13,9 @@ typedef struct {
 //PRECONDICION: El string pasado no puede tener el nombre del comando, y debe haber sido validado previamente
 void Cargar_Polinomio_Desde_String(Polinomio &P, String s_1);
 void Cargar_Polinomio(Polinomio &P);
+//Crea el pilinomio
+void CrearPoli(Polinomio &Poli);
+//Muestra el Polinomio
 void Mostrar_Polinomio(Polinomio P);
 
 //SELECTORAS

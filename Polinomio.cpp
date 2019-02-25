@@ -20,7 +20,7 @@ void CrearPoli(Polinomio &P)
 void Mostrar_Polinomio(Polinomio P)
 {
     print(P.nombre);
-    DesplegarInteractiva(P.Lterminos);
+    Mostrarlista(P.Lterminos);
 }
 
 void DarNombre(Polinomio P, String &s_1);

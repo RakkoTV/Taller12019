@@ -4,7 +4,8 @@
 #include "Termino.h"
 
 typedef struct nodoL {
-   /* Termino*/ int info;
+//     int info;
+    Termino info;
     nodoL * sig;
 } nodo;
 
@@ -21,6 +22,10 @@ void InsFront(Lista &L, int T);
 Termino Primero(Lista L);
 //Borra el primer valor almacenado en la lista
 void Resto(Lista &L);
+//Muestra la Lista de Terminos
+void Mostrarlista (Lista L);
+
+
 
 //FUNCIONES ESPECIFICAS
 //A raiz de un string de terminos, se crea una lista conteniendolos.
