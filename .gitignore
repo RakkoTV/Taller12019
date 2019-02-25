@@ -1,0 +1,9 @@
+.layout
+bin
+obj
+.depend
+*.cscope_file_list
+*.depend
+*.o # 
+*.exe # 
+*.depend # 
