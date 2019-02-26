@@ -8,4 +8,8 @@
 //A raiz de un codigo interno del 1-50, se mostrará el error definido en la documentación.
 void Mostrar_Error(int codigo);
 
+//Tambien, en este modulo se adjunta la funcion "MostrarAyuda()" con el fin de especificar en cualquier momento
+//la lista de comandos al usuario final
+void Mostrar_Ayuda();
+
 #endif // ERRORES_H_INCLUDED

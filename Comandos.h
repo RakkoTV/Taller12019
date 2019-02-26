@@ -17,7 +17,7 @@ Comandos EstablecerComando(String s_1);
 //A raiz de un comando y de un string, se intenta comenzar la ejecucion del comando en cuestion.
 //Dentro de esta funcion se llamara al validador auxiliar de cada comando para el string dado, si ocurre alguna falla,
 //no se seguira con la ejecucion del comando y se dara el error correspondiente en pantalla.
-void ComenzarComando(Comandos com, String s_1, Arbol &a);
+void ComenzarComando(Comandos com_1, String s_1, Arbol &a);
 
 //A raiz de un string pasado, devolvera true o false si el comando es valido y se puede proseguir con el mismo.
 //Es el inicio del parsing, se realizara para cada comando ingresado.

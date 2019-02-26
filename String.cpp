@@ -431,6 +431,9 @@ long int PasarStringANumero(String string_1)
         numerofinal = numerofinal - numerofinal - numerofinal;
     }
 
+    //Elimino el string auxiliar, libero su memoria asignada
+    strdestruir(string_2);
+
     //Lo devuelvo como numero final long int
     return numerofinal;
 }
@@ -474,9 +477,41 @@ boolean ValidarPrimerTermino(String string_1)
 {
     boolean resultado = TRUE;
 
+    if ( ContarTerminos(string_1) >= 2 )
+    {
+        //Se declara un string auxiliar
+        String string_2;
+        int largo_int = strlar(string_1);
+        int i=0, j=0;
 
+        //Se define string_2 con el tamaño de string_1, ya que no se sabe cuanto es el largo final del primer termino
+        string_2 = new char[largo_int+1];
+        string_2[largo_int] = '\0';
 
+        //Inicialmente, se sacan los espacios iniciales si los hubiera
+        while ( string_1[i] == ' ' )
+            i++;
 
+        //Aca se comienza a cortar el primer termino, se lee hasta encontrarse un espacio y se copian los caracteres a string_2
+        while ( string_1[i] != ' ' )
+        {
+            string_2[j] = string_1[i];
+            i++;
+            j++;
+        }
+
+        //"Acorto" el string_2 para topearlo hasta donde se leyo del string_1
+        string_2[j] = '\0';
+
+        //Finalmente, en string_2 se tendra solo el primer termino. Ahora se verifica si el mismo es 0 o no.
+        if ( PasarStringANumero(string_2) == 0 )
+            resultado = FALSE;
+
+        //Para finalizar, se elimina string_2
+        strdestruir(string_2);
+    }
+
+    return resultado;
 }
 
 
