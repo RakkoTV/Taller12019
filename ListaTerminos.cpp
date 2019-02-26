@@ -25,11 +25,11 @@ void InsFront(Lista &L, Termino T)
     L=aux;
 }
 
-/*Termino Primero(Lista L)
+Termino Primero(Lista L)
 {
     return L->info;
 }
-*/
+
 void Resto(Lista &L)
 {
     Lista aux=L;
@@ -46,5 +46,58 @@ void Mostrarlista (Lista L)
 
     }
 }
+
+void InsOrdenada(Lista &L, Termino Ter) //Num;
+{
+    Lista NuevoNodo= new nodo;
+    NuevoNodo->info=Ter;
+    Lista Aux1=L;
+    Lista Aux2; //Lo puse a null no se si va
+
+while((Aux1 !=NULL)&&(DarExponente(Ter)<DarExponente(Aux1->info)))
+
+    //Programar esa funcion boolean
+    {
+        Aux2=Aux1;
+        Aux1=Aux1->sig;
+    }
+    if(L==Aux1) //No entro al while, va al principio
+    {
+        L=NuevoNodo;
+    }
+    else
+        {
+        Aux2->sig=NuevoNodo;//Entro al while
+        }
+    NuevoNodo->sig=Aux1; //Lo muevo
+}
+
+Lista MultiplicarPoli(Lista Pol1, Lista Pol2)
+{
+
+    Lista Nueva, Aux;
+    Aux=Pol2;
+    Crear_Lista(Nueva);
+    while(Pol1 !=NULL)
+    {
+
+        while(Aux!=NULL)
+        {
+
+
+           InsOrdenada(Nueva, MultiplicaTerm(Primero(Pol1),Primero(Aux)));
+
+        Aux=Aux->sig;
+        }
+        Aux=Pol2;
+        Pol1=Pol1->sig;
+
+    }
+
+    return Nueva;
+
+
+}
+
 
 

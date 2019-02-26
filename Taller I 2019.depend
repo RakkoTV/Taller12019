@@ -60,6 +60,7 @@
 1551129764 source:c:\ude\taller i 2019\listaterminos.cpp
 	"ListaTerminos.h"
 
+<<<<<<< HEAD
 1551129764 source:c:\ude\taller i 2019\polinomio.cpp
 	"Polinomio.h"
 
@@ -75,3 +76,69 @@
 1551213692 c:\ude\taller i 2019\testingmodulo_string.h
 	"String.h"
 
+=======
+1551122104 source:c:\users\ramiro\documents\sublime\taller 1 2019\archivo.cpp
+	"Archivo.h"
+
+1551122096 c:\users\ramiro\documents\sublime\taller 1 2019\archivo.h
+	"String.h"
+
+1551129915 c:\users\ramiro\documents\sublime\taller 1 2019\string.h
+	"Boolean.h"
+
+1550707674 c:\users\ramiro\documents\sublime\taller 1 2019\boolean.h
+	<stdio.h>
+
+1551122114 source:c:\users\ramiro\documents\sublime\taller 1 2019\arreglodinamiconumero.cpp
+	"ArreglodinamicoNumero.h"
+
+1551122098 c:\users\ramiro\documents\sublime\taller 1 2019\arreglodinamiconumero.h
+	"Boolean.h"
+
+1551122118 source:c:\users\ramiro\documents\sublime\taller 1 2019\boolean.cpp
+	"Boolean.h"
+
+1550871511 source:c:\users\ramiro\documents\sublime\taller 1 2019\comandos.cpp
+	"Comandos.h"
+
+1551122109 c:\users\ramiro\documents\sublime\taller 1 2019\comandos.h
+	"Errores.h"
+	"Archivo.h"
+	"Arbol.h"
+
+1551122116 c:\users\ramiro\documents\sublime\taller 1 2019\errores.h
+	"String.h"
+
+1551122107 c:\users\ramiro\documents\sublime\taller 1 2019\arbol.h
+	"Polinomio.h"
+
+1551128731 c:\users\ramiro\documents\sublime\taller 1 2019\polinomio.h
+	"ListaTerminos.h"
+
+1551152104 c:\users\ramiro\documents\sublime\taller 1 2019\listaterminos.h
+	"Termino.h"
+
+1551152537 c:\users\ramiro\documents\sublime\taller 1 2019\termino.h
+	"String.h"
+	"ArreglodinamicoNumero.h"
+	"String.h"
+
+1551152506 source:c:\users\ramiro\documents\sublime\taller 1 2019\listaterminos.cpp
+	"ListaTerminos.h"
+
+1551130976 source:c:\users\ramiro\documents\sublime\taller 1 2019\main.cpp
+	"String.h"
+
+1551128934 source:c:\users\ramiro\documents\sublime\taller 1 2019\polinomio.cpp
+	"Polinomio.h"
+
+1551129915 source:c:\users\ramiro\documents\sublime\taller 1 2019\string.cpp
+	"String.h"
+
+1551152618 source:c:\users\ramiro\documents\sublime\taller 1 2019\termino.cpp
+	"Termino.h"
+
+1551150462 source:c:\users\ramiro\documents\sublime\taller 1 2019\arbol.cpp
+	"Arbol.h"
+
+>>>>>>> SE CREA ARBOL CPP

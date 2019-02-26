@@ -107,5 +107,25 @@ void Mostrar_Termino(Termino T)
 }
 
 
+Termino MultiplicaTerm (Termino T1, Termino T2)
+{
+  Termino T3;
+  T3.coeficiente= T1.coeficiente * T2.coeficiente;
+  T3.exponente= T1.exponente + T2.exponente;
+  return T3;
+}
+
+//Percondicion que los exponentes sean iguales
+Termino SumarTermino(Termino T, Termino T2)
+{
+
+    T.coeficiente=T.coeficiente + T2.coeficiente;
+
+
+   return T;
+
+}
+
+
 
 
