@@ -49,4 +49,9 @@ int DevuelveINT (array_dinamico a, int cant);
 //Potencia
 int potencia(int x, int y);
 
+//SUMA Percondicion que los exponentes sean iguales
+Termino SumarTermino(Termino T, Termino T2);
+//MULTIPLICA
+Termino MultiplicaTerm (Termino T1, Termino T2);
+
 #endif // TERMINO_H_INCLUDED
