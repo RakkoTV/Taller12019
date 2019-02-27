@@ -32,6 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Arbol.cpp" />
 		<Unit filename="Arbol.h" />
 		<Unit filename="Archivo.cpp" />
 		<Unit filename="Archivo.h" />

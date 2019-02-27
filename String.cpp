@@ -310,20 +310,17 @@ boolean ValidarSoloEnteros(String string_1)
 boolean ValidarExisteUnNumero(String string_1)
 {
     int i=0;
-    boolean es_entero = TRUE;
+    boolean resultado = FALSE;
 
-    while( (string_1[i] != '\0') && (es_entero == TRUE) )
+    while( (string_1[i] != '\0') && (resultado == FALSE) )
     {
         /* Numeros de 0-9 solamente*/
-        if(
-            ( (int(string_1[i]) >= 48) && (int(string_1[i]) <= 57) )
-        )
-            i++;
-        else
-            es_entero = FALSE;
+        if( ( (int(string_1[i]) >= 48) && (int(string_1[i]) <= 57) ) )
+            resultado = TRUE;
+        i++;
     }
 
-    return es_entero;
+    return resultado;
 }
 
 //A raiz de un char que representa un caracter del 0-9, se deuelve el mismo en formato numero
@@ -465,6 +462,26 @@ int ContarTerminos(String string_1)
            resultado++;
 
         i++;
+    }
+
+    return resultado;
+}
+
+//A raiz de un string, cuenta la cantidad de palabras ingresadas
+int ContarPalabras(String string_1)
+{
+    int resultado = 0;
+
+    if( strlar(string_1) > 0 )
+    {
+        int i=0;
+
+        while( string_1[i] != '\0' )
+        {
+            if ( (int(string_1[i]) != 32 && i == 0) || ( (i > 0) && ( int(string_1[i]) != 32 ) && ( int(string_1[i-1]) == 32 )) )
+                resultado++;
+            i++;
+        }
     }
 
     return resultado;

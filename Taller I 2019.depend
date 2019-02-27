@@ -5,7 +5,7 @@
 1550008883 c:\ude\taller i 2019\archivo.h
 	"String.h"
 
-1551127982 c:\ude\taller i 2019\string.h
+1551295896 c:\ude\taller i 2019\string.h
 	"Boolean.h"
 
 1550708572 c:\ude\taller i 2019\boolean.h
@@ -14,7 +14,7 @@
 1550008883 source:c:\ude\taller i 2019\boolean.cpp
 	"Boolean.h"
 
-1551210319 source:c:\ude\taller i 2019\string.cpp
+1551301213 source:c:\ude\taller i 2019\string.cpp
 	"String.h"
 
 1551211192 source:c:\ude\taller i 2019\main.cpp
@@ -26,7 +26,7 @@
 1551212653 c:\ude\taller i 2019\errores.h
 	"String.h"
 
-1551213852 c:\ude\taller i 2019\comandos.h
+1551292524 c:\ude\taller i 2019\comandos.h
 	"Errores.h"
 	"Archivo.h"
 	"Arbol.h"
@@ -37,10 +37,10 @@
 1551129764 c:\ude\taller i 2019\polinomio.h
 	"ListaTerminos.h"
 
-1551129764 c:\ude\taller i 2019\listaterminos.h
+1551277576 c:\ude\taller i 2019\listaterminos.h
 	"Termino.h"
 
-1551122208 c:\ude\taller i 2019\termino.h
+1551277576 c:\ude\taller i 2019\termino.h
 	"String.h"
 	"ArreglodinamicoNumero.h"
 	"String.h"
@@ -51,23 +51,24 @@
 1551121777 c:\ude\taller i 2019\arreglodinamiconumero.h
 	"Boolean.h"
 
-1551122208 source:c:\ude\taller i 2019\termino.cpp
+1551277576 source:c:\ude\taller i 2019\termino.cpp
 	"Termino.h"
 
-1551214048 source:c:\ude\taller i 2019\comandos.cpp
+1551301069 source:c:\ude\taller i 2019\comandos.cpp
 	"Comandos.h"
 
-1551129764 source:c:\ude\taller i 2019\listaterminos.cpp
+1551277576 source:c:\ude\taller i 2019\listaterminos.cpp
 	"ListaTerminos.h"
 
-<<<<<<< HEAD
+1551129764 D
+
 1551129764 source:c:\ude\taller i 2019\polinomio.cpp
 	"Polinomio.h"
 
-1551214003 source:c:\ude\taller i 2019\menu.cpp
+1551293689 source:c:\ude\taller i 2019\menu.cpp
 	"Menu.h"
 
-1551213976 source:c:\ude\taller i 2019\errores.cpp
+1551301101 source:c:\ude\taller i 2019\errores.cpp
 	"Errores.h"
 
 1551213725 source:c:\ude\taller i 2019\testingmodulo_string.cpp
@@ -76,7 +77,8 @@
 1551213692 c:\ude\taller i 2019\testingmodulo_string.h
 	"String.h"
 
-=======
+1551213692 
+
 1551122104 source:c:\users\ramiro\documents\sublime\taller 1 2019\archivo.cpp
 	"Archivo.h"
 
@@ -141,4 +143,8 @@
 1551150462 source:c:\users\ramiro\documents\sublime\taller 1 2019\arbol.cpp
 	"Arbol.h"
 
->>>>>>> SE CREA ARBOL CPP
+1551150462 CREA ARBOL CPP
+
+1551277576 source:c:\ude\taller i 2019\arbol.cpp
+	"Arbol.h"
+

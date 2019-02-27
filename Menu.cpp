@@ -10,7 +10,7 @@ void MostrarMenu()
     boolean salir = FALSE;
 
     //Se crea el arbol inicial
-    //Crear_Arbol(a);
+    Crear_Arbol(a);
     //Se crea el string inicial de comandos
     strcrear(s_1);
 

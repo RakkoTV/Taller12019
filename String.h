@@ -84,6 +84,9 @@ long int PasarStringANumero(String string_1);
 //nombre del polinomio a crear.
 int ContarTerminos(String string_1);
 
+//A raiz de un string, cuenta la cantidad de palabras ingresadas
+int ContarPalabras(String string_1);
+
 //En caso de que la cantidad de terminos separados por espacio, sea 2 o mas, se
 //debe validar que el primer termino sea distinto de 0. Esto devolvera TRUE/FALSE si se cumple eso dado
 //un string previamente semi-validado y cortado para que solo incluya los posibles terminos

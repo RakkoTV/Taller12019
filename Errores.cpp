@@ -21,7 +21,7 @@ void Mostrar_Error(int codigo)
             printf(" Resultado:        Los coeficientes deben ser numeros enteros\n");
             break;
         case 5:
-            printf(" Resultado:        No se ha ingresado ningun coeficiente\n");
+            printf(" Resultado:        No se ha ingresado ningun coeficiente valido\n");
             break;
         case 6:
             printf(" Resultado:        El primer coeficiente debe ser distinto de 0 en este caso\n");
@@ -34,6 +34,12 @@ void Mostrar_Error(int codigo)
             break;
         case 9:
             printf(" Resultado:        La extension no es la correcta\n");
+            break;
+        case 10:
+            printf(" Resultado:        Debe ingresar el nombre del polinomio a crear, seguido de uno o varios coeficientes\n");
+            break;
+        case 11:
+            printf(" Resultado:        Debe ingresar al menos algun coeficiente despues del nombre del polinomio\n");
             break;
     }
 }
