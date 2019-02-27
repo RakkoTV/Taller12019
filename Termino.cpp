@@ -20,14 +20,13 @@ char DarSigno(Termino T)
 }
 
 void Cargar_Termino_Desde_String(Termino &T, String s_1, int exponente)
- {
-     T.coeficiente= PasarStringANumero(s_1);
-     if(T.coeficiente<0)
+{
+    T.coeficiente= PasarStringANumero(s_1);
+    if(T.coeficiente<0)
         T.signo=45;
-        else
-           T.signo=' '; //En caso de que no tenga el signo de menos se carga la componente para no dejarle basura
-        T.exponente=exponente;
-
+    else
+        T.signo='+'; //En caso de que no tenga el signo de menos se carga la componente para no dejarle basura
+    T.exponente=exponente;
 }
 
 void Mostrar_Termino(Termino T)
@@ -36,7 +35,7 @@ void Mostrar_Termino(Termino T)
     if(T.coeficiente != 0)
     {
 
-    printf("%d",T.coeficiente);
+    printf("%ld",T.coeficiente);
     printf(" ");
     if(T.exponente > 0)
     printf("%d \t",T.exponente);
