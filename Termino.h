@@ -17,11 +17,9 @@ typedef struct {
 //PRECONDICION: El string pasado no puede tener ni el nombre del comando ni el del polinomio, debe haberse validado previamente
 //              y solo debe hacer referencia a un termino valido.
 
-/** Se comenta hasta que se tenga la implementacion faltante de String
 void Cargar_Termino_Desde_String(Termino &T, String s_1, int exponente);
-***/
 
-void Cargar_Termino_Desde_String(Termino &T, long int coeficiente, int exponente, char signo);
+
 
 //Muestra el termino ingresado
 void Mostrar_Termino(Termino T);
@@ -40,11 +38,11 @@ void BorrarTermino(Termino &T);
 
 //Guardara el Termino dentro del archivo apuntado por stream
 //PRECONDICION: El mismo ya fue abierto previamente, y en modo "wb" o "ab"
-void BajarTermino(FILE * stream, Termino T_1);
+void BajarTermino(FILE * stream, Termino T);
 
 //Leera del archivo apuntado por stream, y lo levantara en memoria en Termino
 //PRECONDICION: stream ya fue abierto previamente, y en modo "rb"
-void SubirTermino(FILE * stream, Termino &T_1);
+void SubirTermino(FILE * stream, Termino &T);
 //devuelte entero
 int DevuelveINT (array_dinamico a, int cant);
 
