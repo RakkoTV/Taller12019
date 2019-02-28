@@ -21,30 +21,40 @@ char DarSigno(Termino T)
 
 void Cargar_Termino_Desde_String(Termino &T, String s_1, int exponente)
 {
+    //Se carga el coeficiente transformando el mismo a numero
     T.coeficiente= PasarStringANumero(s_1);
+
+    //El signo solo para mostrarlo
     if(T.coeficiente<0)
-        T.signo=45;
+        T.signo='-';
     else
-        T.signo='+'; //En caso de que no tenga el signo de menos se carga la componente para no dejarle basura
+        T.signo='+';
+
+    //El exponente ya calculado en la lista previamente
     T.exponente=exponente;
 }
 
 void Mostrar_Termino(Termino T)
 {
-   // printf("%c",T.signo);
+    //Solo se mostraran los terminos que no sean 0
     if(T.coeficiente != 0)
     {
+        //Para que no se repita un doble signo --, se hace la siguiente condicion
+        if( (T.coeficiente > 0) || (T.coeficiente == -1) )
+            printf("%c", T.signo);
 
-    printf("%ld",T.coeficiente);
-    printf(" ");
-    if(T.exponente > 0)
-    printf("%d \t",T.exponente);
+        if( ((T.coeficiente != 1) && (T.coeficiente != -1)) || ( T.exponente == 0 ) )
+            printf("%ld",T.coeficiente);
 
+        if( T.exponente >=1 )
+            printf("x");
+
+        if( T.exponente > 1)
+            printf("%d", T.exponente);
+
+        //OJO: Se agrega un espacio al final, para el uso explicito al recorrer todos los terminos de la lista
+        printf(" ");
     }
-
-
-
-
 }
 
 void BajarTermino(FILE * stream, Termino T)

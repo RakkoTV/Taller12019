@@ -38,7 +38,7 @@ Arbol Cons(Polinomio P, Arbol i, Arbol d);
 //OPERACIONES ESPECÍFICAS
 //Insertar, de acuerdo al criterio de nombres mayores o menores alfabeticamente, utilizando el nombre del Polinomio pasado
 //PRECONDICION: En el arbol no se encuentra ningun expediente con el codigo del que ahora se va a insertar.
-void Insert(Arbol &a, Polinomio P);
+void Insert(Arbol &a, Polinomio P_1);
 
 //A raiz de un string que represena el nombre de un polinomio, se devuelve si se lo encontro en el arbol o no
 //PREONDICION: s_1 es un nombre de polinomio valido

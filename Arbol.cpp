@@ -67,7 +67,35 @@ Arbol Cons(Polinomio P, Arbol i, Arbol d)
 //OPERACIONES ESPECÍFICAS
 //Insertar, de acuerdo al criterio de nombres mayores o menores alfabeticamente, utilizando el nombre del Polinomio pasado
 //PRECONDICION: En el arbol no se encuentra ningun expediente con el codigo del que ahora se va a insertar.
-void Insert(Arbol &a, Polinomio P);
+void Insert(Arbol &a, Polinomio P_1)
+{
+    if (a == NULL)
+    {
+        a = new nodoA;
+        a -> info = P_1;
+        a -> HIzq = NULL;
+        a -> HDer = NULL;
+    }
+    else
+    {
+        String Aux_NodoActual, Aux_NuevoNodo;
+        strcrear(Aux_NodoActual);
+        strcrear(Aux_NuevoNodo);
+
+        DarNombre(a->info, Aux_NodoActual);
+        DarNombre(a->info, Aux_NuevoNodo);
+
+        //Si el nombre del polinomio del nodo presente es menor al nombre del polinomio del nuevo nodo, se ira para la izquierda.
+        //Si no, se ira para la derecha
+        if ( strmen(Aux_NodoActual, Aux_NuevoNodo) )
+            Insert(a->HIzq,P_1);
+        else
+            Insert(a->HDer,P_1);
+
+        strdestruir(Aux_NodoActual);
+        strdestruir(Aux_NuevoNodo);
+    }
+}
 
 //A raiz de un string que represena el nombre de un polinomio, se devuelve si se lo encontro en el arbol o no
 //PREONDICION: s_1 es un nombre de polinomio valido

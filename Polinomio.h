@@ -11,10 +11,10 @@ typedef struct {
 //CARGAR/MOSTRAR
 //El cargado se realizara tambien a través de un string, cortando el nombre del polinomio y sus terminos
 //PRECONDICION: El string pasado no puede tener el nombre del comando, y debe haber sido validado previamente
-void Cargar_Polinomio_Desde_String(Polinomio &P, String s_1);
-void Cargar_Polinomio(Polinomio &P);
+void Cargar_Polinomio_Desde_String(Polinomio &P, String nombre_pol, String lista_terminos);
+void Cargar_Polinomio(Polinomio &P, String Nombre, Lista LisTer);
 //Crea el pilinomio
-void CrearPoli(Polinomio &Poli);
+void CrearPoli(Polinomio &P);
 //Muestra el Polinomio
 void Mostrar_Polinomio(Polinomio P);
 

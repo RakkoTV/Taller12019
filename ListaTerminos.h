@@ -4,7 +4,6 @@
 #include "Termino.h"
 
 typedef struct nodoL {
-//     int info;
     Termino info;
     nodoL * sig;
 } nodo;
@@ -17,20 +16,20 @@ void Crear_Lista(Lista &L);
 //Saber si la lista está vacía
 boolean EsVacio_Lista(Lista L);
 //Inserta un termino al principio de la lista
-void InsFront(Lista &L, int T);
+void InsFront(Lista &L, Termino T);
 //Devuelve el primer valor almacenado en la lista
 Termino Primero(Lista L);
 //Borra el primer valor almacenado en la lista
 void Resto(Lista &L);
 //Muestra la Lista de Terminos
 void Mostrarlista (Lista L);
-
-
+//Dada una lista y un termino, agrega dicho termino al final de la lista
+void InsBackRecu(Lista &L, Termino T_1);
 
 //FUNCIONES ESPECIFICAS
 //A raiz de un string de terminos, se crea una lista conteniendolos.
 //PRECONDICION: El string pasado debe estar previamente validado y no puede contener ni el nombre del comando ni el nombre del polinomio
-void Crear_Lista_Desde_String(Lista &L, String s_1);
+void Crear_Lista_Desde_String(Lista &L, String string_1);
 
 //Despliega por pantalla (sin el \n) el conjunto de terminos guardados en esta lista. Se le agrega un espacio al final por cada
 //termino que se hubiera almacenado.

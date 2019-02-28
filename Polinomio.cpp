@@ -1,13 +1,16 @@
 #include "Polinomio.h"
 
 
-void Cargar_Polinomio_Desde_String(Polinomio &P, String s_1);
-
+void Cargar_Polinomio_Desde_String(Polinomio &P, String nombre_pol, String lista_terminos)
+{
+    strcop(P.nombre, nombre_pol);
+    Crear_Lista_Desde_String(P.Lterminos, lista_terminos);
+}
 
 void Cargar_Polinomio(Polinomio &P, String Nombre, Lista LisTer)
 {
     CrearPoli(P);
-    strcop(Nombre, P.nombre);
+    strcop(P.nombre, Nombre);
     P.Lterminos=LisTer;
 }
 
@@ -20,6 +23,7 @@ void CrearPoli(Polinomio &P)
 void Mostrar_Polinomio(Polinomio P)
 {
     print(P.nombre);
+    printf(" = ");
     Mostrarlista(P.Lterminos);
 }
 

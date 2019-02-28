@@ -282,17 +282,69 @@ boolean ValidarCrear(String string_1, Arbol a)
 //PRECONDICION: El string pasado debe haberse validado previamente antes de invocar esta funcion.
 void Crear(String string_1, Arbol &a)
 {
+    //1er Paso: Separo el nombre del Polinomio de la Lista de Terminos.
+    String nombre_pol;
+    int largo_int = strlar(string_1);
+    int i=0, j=0;
 
+    //Como siempre, tengo cuidado con los espacios iniciales si los hubiera
+    while ( string_1[i] == ' ' )
+        i++;
+
+    //Copio el nombre del string inicial al nuevo string
+    nombre_pol = new char[largo_int+1];
+    nombre_pol[largo_int] = '\0';
+
+    while ( string_1[i] != ' ' )
+    {
+        nombre_pol[j] = string_1[i];
+        i++;
+        j++;
+    }
+
+    //Termino el string que incluye el nombre del polinomio
+    nombre_pol[j] = '\0';
+
+    //2do Paso: Leo hasta el final de lo que me resta en string_1 para crear el segundo string que contiene la lista de
+    //coeficientes a agregar
+    String lista_terminos;
+    j=0;
+
+    //Nuevamente, leo los espacios entre el nombre del comando y el primer termino que hubiera
+    while ( string_1[i] == ' ' )
+        i++;
+
+    //Copio la lista del string inicial al nuevo string
+    lista_terminos = new char[largo_int+1];
+    lista_terminos[largo_int] = '\0';
+
+    while ( string_1[i] != '\0' )
+    {
+        lista_terminos[j] = string_1[i];
+        i++;
+        j++;
+    }
+
+    //Termino el string que incluye la lista de terminos
+    lista_terminos[j] = '\0';
+
+    //Una vez separadas las cosas, invoco a las funciones correspondientes para agregarlas en el arbol
+    Polinomio P_1;
+
+    //Creo un nuevo Polinomio
+    CrearPoli(P_1);
+    Cargar_Polinomio_Desde_String(P_1, nombre_pol, lista_terminos);
+
+    //Lo agrego en el arbol
+    Insert(a, P_1);
+
+    //Muestro el Polinomio creado como resultado
+    printf(" Resultado:        ");
+    Mostrar_Polinomio(P_1);
+    printf("\n");
+
+    //Elimino la memoria usada para los string auxiliares
+    strdestruir(nombre_pol);
+    strdestruir(lista_terminos);
 }
 
-void Sumar(String s_1, Arbol &a)
-{
-    int i =0;
-    while(s_1[i] !='\0')
-     {
-         if(s_1[i] != ' ')
-         {
-            strcrear(s_1);
-         }
-     }
-}
