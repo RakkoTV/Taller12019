@@ -17,7 +17,7 @@
 1551301213 source:c:\ude\taller i 2019\string.cpp
 	"String.h"
 
-1551378478 source:c:\ude\taller i 2019\main.cpp
+1551386514 source:c:\ude\taller i 2019\main.cpp
 	"Menu.h"
 	"ListaTerminos.h"
 
@@ -55,7 +55,7 @@
 1551386452 source:c:\ude\taller i 2019\termino.cpp
 	"Termino.h"
 
-1551384800 source:c:\ude\taller i 2019\comandos.cpp
+1551388369 source:c:\ude\taller i 2019\comandos.cpp
 	"Comandos.h"
 
 1551386263 source:c:\ude\taller i 2019\listaterminos.cpp
@@ -63,7 +63,7 @@
 
 1551129764 D
 
-1551384614 source:c:\ude\taller i 2019\polinomio.cpp
+1551388677 source:c:\ude\taller i 2019\polinomio.cpp
 	"Polinomio.h"
 
 1551293689 source:c:\ude\taller i 2019\menu.cpp
@@ -146,7 +146,7 @@
 
 1551150462 CREA ARBOL CPP
 
-1551384424 source:c:\ude\taller i 2019\arbol.cpp
+1551388725 source:c:\ude\taller i 2019\arbol.cpp
 	"Arbol.h"
 
 1550873425 source:c:\users\sebastian\desktop\p2\taller12019\taller120192\taller12019\archivo.cpp

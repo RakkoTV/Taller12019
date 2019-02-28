@@ -137,7 +137,7 @@ void ComenzarComando(Comandos com_1, String string_1, Arbol &a)
         }
         case MOSTRAR:
         {
-
+            Mostrar(a);
             break;
         }
         case GUARDAR:
@@ -348,3 +348,15 @@ void Crear(String string_1, Arbol &a)
     strdestruir(lista_terminos);
 }
 
+//Se establece el comando Mostrar. Si no existe ningun polinomio a mostrar, se imprimira aca tambien el mensaje en pantalla.
+//Si no, se invoca a las funciones de mostrar arbol, polinomio y termino en cada caso.
+void Mostrar(Arbol a)
+{
+    if( EsVacio_Arbol(a) )
+         printf(" Resultado:        No se ha ingresado ningun Polinomio al sistema\n");
+    else
+    {
+        printf(" Resultado:        \n");
+        MostrarArbol(a);
+    }
+}

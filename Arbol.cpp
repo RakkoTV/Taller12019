@@ -83,7 +83,7 @@ void Insert(Arbol &a, Polinomio P_1)
         strcrear(Aux_NuevoNodo);
 
         DarNombre(a->info, Aux_NodoActual);
-        DarNombre(a->info, Aux_NuevoNodo);
+        DarNombre(P_1, Aux_NuevoNodo);
 
         //Si el nombre del polinomio del nodo presente es menor al nombre del polinomio del nuevo nodo, se ira para la izquierda.
         //Si no, se ira para la derecha
@@ -101,36 +101,48 @@ void Insert(Arbol &a, Polinomio P_1)
 //PREONDICION: s_1 es un nombre de polinomio valido
 boolean ExistePolinomio(Arbol a, String s_1)
 {
-    String Aux;
-    strcrear(Aux);
-
     if (a==NULL)
     {
         return FALSE;
     }
     else
-        DarNombre(a->info,Aux);
-        if(streq(Aux,s_1))
-        {
-            return TRUE;
-        }
+    {
+        String Aux;
+        strcrear(Aux);
+        DarNombre(a->info, Aux);
 
+        if( streq(Aux, s_1) )
+            return TRUE;
         else
-            if(strmen(Aux, s_1) )// como separa antes de comparar
-            {
+            if( strmen(Aux, s_1) )// como separa antes de comparar
                 return ExistePolinomio(a->HIzq, s_1);
-            }
             else
                 return ExistePolinomio(a->HDer, s_1);
-}
 
+        strdestruir(Aux);
+    }
+}
 
 //A raiz del nombre de un polinomio ya existente, se lo devuelve en base a una busqueda en el arbol
 //PRECONDICION: s_1 es un nombre valido, y el polinomio s_1 ya se encuentra cargado en el arbol previamente
 Polinomio EncontrarPolinomio(Arbol a, String s_1);
 
 //Despliega en pantalla el conjunto de polinomios guardado, uno en cada linea.
-void MostrarArbol(Arbol a);
+void MostrarArbol(Arbol a)
+{
+    //La recorrida completa usara el metodo "Orden"
+    if( a != NULL)
+    {
+        MostrarArbol(a->HIzq);
+
+        //Se deja todos los espacios iniciales para que por cada polinomio se muestre linea a linea todo
+        printf("                   ");
+        Mostrar_Polinomio(a->info);
+        printf("\n");
+
+        MostrarArbol(a->HDer);
+    }
+}
 
 //Se recorrera todos los nodos del arbol, eliminando la memoria almacenada por cada uno. Se invocara a las funciones de eliminacion
 //de BorrarPolinomio, BorrarLista y BorrarTerminos.

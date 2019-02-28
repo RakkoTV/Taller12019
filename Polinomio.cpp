@@ -29,7 +29,7 @@ void Mostrar_Polinomio(Polinomio P)
 
 void DarNombre(Polinomio P, String &s_1)
 {
-    strcop(P.nombre,s_1);
+    strcop(s_1, P.nombre);
 }
 
 Lista DarTerminos(Polinomio P)
