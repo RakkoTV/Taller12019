@@ -50,14 +50,14 @@ void Mostrar_Termino(Termino T)
 void BajarTermino(FILE * stream, Termino T)
 {
  fwrite(&T.signo,sizeof(char),1,stream);
- fwrite(&T.coeficiente,sizeof(int),1,stream);
+ fwrite(&T.coeficiente,sizeof(long int),1,stream);
  fwrite(&T.exponente,sizeof(int),1,stream);
 }
 
 void SubirTermino(FILE * stream, Termino &T)
 {
  fread(&T.signo,sizeof(char),1,stream);
- fread(&T.coeficiente,sizeof(int),1,stream);
+ fread(&T.coeficiente,sizeof(long int),1,stream);
  fread(&T.exponente,sizeof(int),1,stream);
 
 }

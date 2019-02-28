@@ -99,5 +99,67 @@ Lista MultiplicarPoli(Lista Pol1, Lista Pol2)
 
 }
 
+void Crear_Lista_Desde_String(Lista &L, String s_1)
+{  int i=0,j=0,cant;Termino T; String s1,s2;
+   cant=1;//ContarTerminos(s_1);
+   int  largo=strlar(s_1);
+
+
+    while((s_1[i] != '\0')&&(i<largo))
+    {
+        strcrear(s1);
+
+        strcrear(s2);
+          printf("Inicio de iteracion posicion j es %d",j);
+
+
+       while((s_1[j] != ' ')&&(s_1[j] != '\0'))
+        {
+
+        s2[j]=s_1[j];
+        //printf("%c",s2[j]);
+        j++;
+
+        }
+        s2[j]='\0';
+        printf(" poscion j es %d \n",j);
+
+        strcop(s1,s2);
+        strdestruir(s2);
+        //print(s1);
+
+      // printf("termino copiado 1 \n");
+        Cargar_Termino_Desde_String(T,s1,cant);
+        //Mostrar_Termino(T);
+        InsFront(L,T);
+        strdestruir(s1);
+//
+//       // cant--;
+//       // printf("se ingreso primer termino en");
+
+        printf("Fin iteracion poscion j es %d \n",j);
+        j=j+1;
+        i=j;
+
+        //fflush(stdin);
+
+    }
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
