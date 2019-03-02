@@ -155,9 +155,14 @@ void print(String string_1)
 boolean strmen(String string_1, String string_2)
 {
     int i=0, aux=0;
-    boolean resultado=FALSE, salir=FALSE;
+    boolean resultado, salir = FALSE;
 
-    while( (string_1[i] != '\0') && (salir == FALSE) )
+    if ( strlar(string_1) <= strlar(string_2) )
+        resultado=TRUE;
+    else
+        resultado=FALSE;
+
+    while( (string_1[i] != '\0') && (string_2[i] != '\0') && ( salir == FALSE) )
     {
         if ( string_1[i] == string_2[i] )
         {
@@ -167,16 +172,18 @@ boolean strmen(String string_1, String string_2)
         {
             if ( string_1[i] < string_2[i] )
             {
-                salir = TRUE;
                 resultado = TRUE;
+                salir = TRUE;
             }
             else
             {
-                salir = TRUE;
                 resultado = FALSE;
+                salir = TRUE;
             }
         }
     }
+
+    //if ( (strlar(string_2) == (i-1)) && (  ) )
 
     return resultado;
 }

@@ -85,12 +85,15 @@ void Insert(Arbol &a, Polinomio P_1)
         DarNombre(a->info, Aux_NodoActual);
         DarNombre(P_1, Aux_NuevoNodo);
 
+        //PRUEBAS REALIZADAS EN LA CONSTRUCCION DE ESTE COMANDO
+        //printf("\nBUSQUEDA ABB... NodoActual: "); print(Aux_NodoActual); printf(" - NodoNuevo: ");print(Aux_NuevoNodo);printf(".");
+
         //Si el nombre del polinomio del nodo presente es menor al nombre del polinomio del nuevo nodo, se ira para la izquierda.
         //Si no, se ira para la derecha
-        if ( strmen(Aux_NodoActual, Aux_NuevoNodo) )
-            Insert(a->HIzq,P_1);
+        if ( strmen(Aux_NuevoNodo, Aux_NodoActual) )
+            Insert(a->HIzq, P_1);
         else
-            Insert(a->HDer,P_1);
+            Insert(a->HDer, P_1);
 
         strdestruir(Aux_NodoActual);
         strdestruir(Aux_NuevoNodo);
@@ -112,14 +115,21 @@ boolean ExistePolinomio(Arbol a, String s_1)
         DarNombre(a->info, Aux);
 
         if( streq(Aux, s_1) )
+        {
+            strdestruir(Aux);
             return TRUE;
+        }
         else
-            if( strmen(Aux, s_1) )// como separa antes de comparar
+            if( strmen(s_1, Aux) )// como separa antes de comparar
+            {
+                strdestruir(Aux);
                 return ExistePolinomio(a->HIzq, s_1);
+            }
             else
+            {
+                strdestruir(Aux);
                 return ExistePolinomio(a->HDer, s_1);
-
-        strdestruir(Aux);
+            }
     }
 }
 
