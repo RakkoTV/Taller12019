@@ -140,7 +140,10 @@ void ComenzarComando(Comandos com_1, String string_1, Arbol &a)
         {
             //printf("Entra al evaluar");
             if (ValidarEvaluar(string_2,a)==TRUE)
-                printf("Se procede a Evaluar");
+                {
+                printf("Se procede a Evaluar... ");
+                Evaluar(string_2,a);
+                }
             break;
         }
         case ESRAIZ:
@@ -655,14 +658,14 @@ void Mostrar(Arbol a)
 
 void Evaluar(String s_1, Arbol a)
 {
-    if (ExistePolinomio(a,s_1)==TRUE) // seria un encontre polinomio
-    {
+        long int evaluar=0;
+
         String string_2;
         int largo_int = strlar(s_1);
         int i=0, j=0;
         string_2 = new char[largo_int+1];
         string_2[largo_int] = '\0';
-
+       ///Se obtiene polinomio
         while ( s_1[i] != ' ' )
         {
             string_2[j] = s_1[i];
@@ -670,7 +673,9 @@ void Evaluar(String s_1, Arbol a)
             j++;
         }
         string_2[j] = '\0';
-         while ( s_1[i] == ' ' )
+         Polinomio p=EncontrarPolinomio(a,string_2);
+            ///Se obtiene numero
+            while ( s_1[i] == ' ' )
                     i++;
 
                 String string_3;
@@ -690,12 +695,17 @@ void Evaluar(String s_1, Arbol a)
 
                 long int numero_eval=PasarStringANumero(string_3);
 
+               evaluar=EvaluarRecursivo(DarTerminos(p),numero_eval);
 
 
+
+
+
+    printf("El Resultado es: %ld",evaluar);
 
     }
 
-}
+
 boolean ValidarEvaluar(String s_1, Arbol a)
 {
 
