@@ -43,8 +43,10 @@ void SubirTermino(FILE * stream, Termino &T);
 //devuelte entero
 int DevuelveINT (array_dinamico a, int cant);
 
-//Potencia
+//Potencia enteros
 int potencia(int x, int y);
+//Potencia enteros largos
+long int potenciaLong(long int x, long int y);
 
 //SUMA Percondicion que los exponentes sean iguales
 Termino SumarTermino(Termino T, Termino T2);

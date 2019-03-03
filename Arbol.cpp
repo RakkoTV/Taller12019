@@ -153,7 +153,7 @@ Polinomio EncontrarPolinomio(Arbol a, String s_1)
             }
             else
             {
-                EncontrarPolinomio(a->HDer, s_1);
+              return  EncontrarPolinomio(a->HDer, s_1);
             }
 
         }

@@ -160,17 +160,20 @@ void Crear_Lista_Desde_String(Lista &L, String string_1)
         cant_terminos--;
     }
 
+}
 long int EvaluarRecursivo(Lista L, long int n)
 {
+     long int resultado;
+
     if (L==NULL)
         return 0;
         else
-         int resultado=((DarExponente(L->info)*n)+DarCoeficiente(L->info))
+       resultado=((potenciaLong(n,DarExponente(L->info)))*DarCoeficiente(L->info));
 
-     return resultado+EvaluarRecursivo(L->sig,n)
-
-}
+     return resultado+EvaluarRecursivo(L->sig,n);
 
 }
+
+
 
 
