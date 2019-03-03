@@ -127,7 +127,9 @@ void ComenzarComando(Comandos com_1, String string_1, Arbol &a)
         }
         case EVALUAR:
         {
-
+            //printf("Entra al evaluar");
+            if (ValidarEvaluar(string_2,a)==TRUE)
+                printf("Se procede a Evaluar");
             break;
         }
         case ESRAIZ:
@@ -360,3 +362,167 @@ void Mostrar(Arbol a)
         MostrarArbol(a);
     }
 }
+
+void Evaluar(String s_1, Arbol a)
+{
+    if (ExistePolinomio(a,s_1)==TRUE) // seria un encontre polinomio
+    {
+        String string_2;
+        int largo_int = strlar(s_1);
+        int i=0, j=0;
+        string_2 = new char[largo_int+1];
+        string_2[largo_int] = '\0';
+
+        while ( s_1[i] != ' ' )
+        {
+            string_2[j] = s_1[i];
+            i++;
+            j++;
+        }
+        string_2[j] = '\0';
+         while ( s_1[i] == ' ' )
+                    i++;
+
+                String string_3;
+
+                j=0;
+
+                string_3 = new char[largo_int+1];
+                string_3[largo_int] = '\0';
+
+                while ( s_1[i] != '\0' )
+                {
+                    string_3[j] = s_1[i];
+                    i++;
+                    j++;
+                }
+                string_3[j] = '\0';
+
+                long int numero_eval=PasarStringANumero(string_3);
+
+
+
+
+    }
+
+}
+boolean ValidarEvaluar(String s_1, Arbol a)
+{
+
+         boolean resultado = TRUE;
+
+    //1era validacion: Se debera ingresar minimamente 2 palabras: el nombre del nuevo polinomio y un numero entero
+    if(ContarPalabras(s_1) < 2)
+    {
+        if ( ContarPalabras(s_1) == 1 )
+        {
+            Mostrar_Error(12);
+            resultado = FALSE;
+        }
+        else
+        {
+            Mostrar_Error(13);
+            resultado = FALSE;
+        }
+    }
+    else
+    {
+        //2 Validacion: el nombre del polinomio ingresado tiene que ser Alfanumerico
+        String string_2;
+        int largo_int = strlar(s_1);
+        int i=0, j=0;
+
+        //Se define string_2 con el tamaño de string_1 inicialmente, ya que no se sabe cuanto es el largo final de lo escrito
+        string_2 = new char[largo_int+1];
+        string_2[largo_int] = '\0';
+
+        while ( s_1[i] != ' ' )
+        {
+            string_2[j] = s_1[i];
+            i++;
+            j++;
+        }
+
+        //Termino el string_2 para topearlo hasta donde se leyo del string_1
+        string_2[j] = '\0';
+
+        //Al finalizar, en string_2 tendre cargado el posible nombre del polinomio
+        if( !ValidarAlfanumerico(string_2) )
+        {
+            //Si el nombre no es alfanumerico, dara el error correspondiente
+            Mostrar_Error(2);
+            resultado = FALSE;
+        }
+        else
+        {
+            //3era validacion: El polinomio  existe en el arbol
+            if ( !ExistePolinomio(a, string_2) )
+            {
+                //Si no  existe algun polinomio con ese nombre, dara el error correspondiente
+
+                        resultado = FALSE;
+                        Mostrar_Error(14);
+            }
+
+            else
+            {
+                //Se continua cortando el string_1, ahora ya con miras a validar el conjunto de numeros cargados
+                //Se sacan los espacios iniciales si los hubiera
+                while ( s_1[i] == ' ' )
+                    i++;
+
+                String string_3;
+                //Notar que la variable i se deja como esta, porque ya arranca desde donde se corto el nombre del polinomio
+                j=0;
+
+                //Se define string_3 con el tamaño de string_1 inicialmente, ya que no se sabe cuanto es el largo final de lo escrito
+                string_3 = new char[largo_int+1];
+                string_3[largo_int] = '\0';
+
+                while ( s_1[i] != '\0' )
+                {
+                    string_3[j] = s_1[i];
+                    i++;
+                    j++;
+                }
+
+                //Termino el string_3 para topearlo hasta donde se leyo del string_1
+                string_3[j] = '\0';
+
+                //Una vez llegados a este punto, en string_3 tendre numeros enteros. Ahora resta continuar con las validaciones
+                if ( !ValidarExisteUnNumero(string_3) )
+                {
+                    //4ta validacion: No se ingresos ningun numero entero
+                    Mostrar_Error(16);
+                    resultado = FALSE;
+                }
+                else
+                {
+                    //5ta validacion: Verificar que los numeros ingresados sean enteros
+                    if( !ValidarSoloEnteros(string_3) )
+                    {
+                        Mostrar_Error(15);
+                        resultado = FALSE;
+                    }
+
+
+                }
+
+
+                //Elimino string_3 de la memoria
+                strdestruir(string_3);
+            }
+        }
+
+        //Elimino string_2 de la memoria
+        strdestruir(string_2);
+    }
+
+    return resultado;
+        }
+
+
+
+
+
+

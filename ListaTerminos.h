@@ -54,4 +54,5 @@ void InsOrdenada(Lista &L, Termino Ter);
 
 Lista MultiplicarPoli(Lista Poli1, Lista Poli2);
 
+long int EvaluarRecursivo(Lista L,long int n);
 #endif // LISTATERMINOS_H_INCLUDED

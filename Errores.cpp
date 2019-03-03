@@ -41,6 +41,21 @@ void Mostrar_Error(int codigo)
         case 11:
             printf(" Resultado:        Debe ingresar al menos algun coeficiente despues del nombre del polinomio\n");
             break;
+        case 12:
+                printf("Resultado:        Debe ingresar al menos algun numero entero despues del nombre del polinomio\n");
+                break;
+        case 13:
+                printf("Resultado:        Debe ingresar el nombre del polinomio a evaluar, seguido de un numero entero\n");
+                break;
+        case 14:
+                printf("Resultado:        No existe polinomio en el arbol");
+                break;
+        case 15:
+                 printf("Resultado:         El numero ingresado no es un numero entero");
+                 break;
+        case 16:
+                 printf("Resultado:        debe ingresar un numero entero");
+                 break;
     }
 }
 
