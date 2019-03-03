@@ -37,6 +37,9 @@ boolean ValidarSumar(String s_1, Arbol a);
 //un tercero en el arbol
 void Sumar(String s_1, Arbol &a);
 
+//Extrae los nombre de los polinomios
+void ExtraerNomnbresPoli(String string_1, Arbol a, String &string_3, String &string_4);
+
 //A raiz de un string pasado, se verifica que el mismo sea valido para con los requerimientos del comando MULTIPLICAR
 //(que tenga 3 polinomios, el primero que no exista en el sistema y los otros 2 que si existan)
 //Si no, dara error en cada caso.
