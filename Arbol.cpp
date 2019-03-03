@@ -135,7 +135,30 @@ boolean ExistePolinomio(Arbol a, String s_1)
 
 //A raiz del nombre de un polinomio ya existente, se lo devuelve en base a una busqueda en el arbol
 //PRECONDICION: s_1 es un nombre valido, y el polinomio s_1 ya se encuentra cargado en el arbol previamente
-Polinomio EncontrarPolinomio(Arbol a, String s_1);
+Polinomio EncontrarPolinomio(Arbol a, String s_1)
+{
+   String aux;
+            strcrear(aux);
+            DarNombre(a->info, aux);
+    if(streq(aux,s_1))
+       {
+           return DarRaiz(a);
+       }
+       else
+        {
+
+            if(strmen(s_1,aux))
+            {
+                return EncontrarPolinomio(a->HIzq, s_1);
+            }
+            else
+            {
+                EncontrarPolinomio(a->HDer, s_1);
+            }
+
+        }
+
+}
 
 //Despliega en pantalla el conjunto de polinomios guardado, uno en cada linea.
 void MostrarArbol(Arbol a)
