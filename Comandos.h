@@ -59,11 +59,11 @@ void Evaluar(String s_1, Arbol a);
 
 //Se valida el comando EsRaiz. Se verifica que el nombre del string pertenezca a un polinomio valido y ya dado de alta en
 //el arbol, y que el numero siguiente sea valido y sea entero.
-boolean ValidarEsRaiz(String s_1, Arbol a);
+//boolean ValidarEsRaiz(String s_1, Arbol a);
 
 //Se establece el comando EsRaiz. Se recorre el arbol hasta encontrar el polinomio, y se determina si ese numero entero
 //es raiz del polinomio o no.
-boolean EsRaiz(String s_1, Arbol a);
+void EsRaiz(String s_1, Arbol a);
 
 //Se establece el comando Mostrar. Si no existe ningun polinomio a mostrar, se imprimira aca tambien el mensaje en pantalla.
 //Si no, se invoca a las funciones de mostrar arbol, polinomio y termino en cada caso.

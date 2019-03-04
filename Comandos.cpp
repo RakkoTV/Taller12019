@@ -148,6 +148,11 @@ void ComenzarComando(Comandos com_1, String string_1, Arbol &a)
         }
         case ESRAIZ:
         {
+            if (ValidarEvaluar(string_2,a)==TRUE)
+                {
+                printf("Se procede a verificar si es Raiz... ");
+                EsRaiz(string_2,a);
+                }
 
             break;
         }
@@ -701,7 +706,60 @@ void Evaluar(String s_1, Arbol a)
 
 
 
-    printf("El Resultado es: %ld",evaluar);
+    printf("\nEl Resultado es: %ld",evaluar);
+
+}
+
+ void EsRaiz(String s_1, Arbol a)
+{
+        long int evaluar=0;
+
+        String string_2;
+        int largo_int = strlar(s_1);
+        int i=0, j=0;
+        string_2 = new char[largo_int+1];
+        string_2[largo_int] = '\0';
+       ///Se obtiene polinomio
+        while ( s_1[i] != ' ' )
+        {
+            string_2[j] = s_1[i];
+            i++;
+            j++;
+        }
+        string_2[j] = '\0';
+         Polinomio p=EncontrarPolinomio(a,string_2);
+            ///Se obtiene numero
+            while ( s_1[i] == ' ' )
+                    i++;
+
+                String string_3;
+
+                j=0;
+
+                string_3 = new char[largo_int+1];
+                string_3[largo_int] = '\0';
+
+                while ( s_1[i] != '\0' )
+                {
+                    string_3[j] = s_1[i];
+                    i++;
+                    j++;
+                }
+                string_3[j] = '\0';
+
+                long int numero_eval=PasarStringANumero(string_3);
+
+               evaluar=EvaluarRecursivo(DarTerminos(p),numero_eval);
+
+
+
+    if (evaluar != 0)
+        printf("\nEl numero %ld No es Raiz del Polinomio", evaluar);
+        else
+            printf("\nEl numero %ld Es Raiz del Polinomio", evaluar);
+
+
+    //printf("El Resultado es: %ld",evaluar);
 
     }
 
