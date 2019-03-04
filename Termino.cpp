@@ -91,7 +91,7 @@ Termino SumarTermino(Termino T, Termino T2)
    return T;
 
 }
-long int potenciaLong(long int x, long int y)
+long int potenciaLong(long int x, int y)
 {
 
         if (y<=0)
