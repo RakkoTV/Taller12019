@@ -76,7 +76,6 @@ void ComenzarComando(Comandos com_1, String string_1, Arbol &a)
     //tanto en las validaciones como en la ejecucion de cada comando no se tendra que volver a repetir este procedimiento
     //Se declara un string auxiliar para guardar solo el nombre del comando
     String string_2;
-    String s_3,s_4;
     int largo_int = strlar(string_1);
     int i=0, j=0;
 
@@ -118,43 +117,42 @@ void ComenzarComando(Comandos com_1, String string_1, Arbol &a)
         }
         case SUMAR:
         {
-
+            if (ValidarSumarYMultiplicar(string_2,a))
+                printf(" Resultado:        \n");
             break;
         }
         case MULTIPLICAR:
         {
-                if ( ValidarMultiplicar(string_2,a))
+                if (ValidarSumarYMultiplicar(string_2,a))
                 {
-                    printf("\n HOLAAAAAAAAAAAA");
-                    ExtraerNomnbresPoli(string_2, a, s_3, s_4);
-                    //EncontrarPolinomio(a, s_3);
-                    //EncontrarPolinomio(a, s_4);
-                    MultiplicarPoli(DarTerminos(EncontrarPolinomio(a, s_3)), DarTerminos(EncontrarPolinomio(a, s_4)));
+                    String s_2,s_3,s_4;
+
+                    ExtraerNombresPoli(string_2, s_2, s_3, s_4);
+
+                    printf(" Resultado:        \n");
+                    printf("                   S2 - ");print(s_2);printf("\n");
+                    printf("                   S3 - ");print(s_3);printf("\n");
+                    printf("                   S4 - ");print(s_4);printf("\n");
+
+                    strdestruir(s_2);
+                    strdestruir(s_3);
+                    strdestruir(s_4);
+
+                    //MultiplicarPoli(DarTerminos(EncontrarPolinomio(a, s_3)), DarTerminos(EncontrarPolinomio(a, s_4)));
                 }
-
-
                 //Crear(string_2, a);
-
             break;
         }
         case EVALUAR:
         {
-            //printf("Entra al evaluar");
-            if (ValidarEvaluar(string_2,a)==TRUE)
-                {
-                printf("Se procede a Evaluar... ");
+            if (ValidarEvaluar(string_2,a))
                 Evaluar(string_2,a);
-                }
             break;
         }
         case ESRAIZ:
         {
-            if (ValidarEvaluar(string_2,a)==TRUE)
-                {
-                printf("Se procede a verificar si es Raiz... ");
+            if (ValidarEvaluar(string_2,a))
                 EsRaiz(string_2,a);
-                }
-
             break;
         }
         case MOSTRAR:
@@ -370,23 +368,21 @@ void Crear(String string_1, Arbol &a)
     strdestruir(lista_terminos);
 }
 
-
-
-boolean ValidarMultiplicar(String string_1, Arbol a)
+boolean ValidarSumarYMultiplicar(String string_1, Arbol a)
 {
     boolean resultado = TRUE;
 
-    //1era validacion: Se debera ingresar minimamente 2 palabras: el nombre del nuevo polinomio y un termino
-    if(ContarPalabras(string_1) < 3)
+    //1era validacion: Se debera ingresar minimamente 3 palabras: el nombre del nuevo polinomio y 2 polinomios ya existentes
+    if(ContarPalabras(string_1) != 3)
     {
         if ( ContarPalabras(string_1) == 1 )
         {
-            Mostrar_Error(11);
+            Mostrar_Error(17);
             resultado = FALSE;
         }
         else
         {
-            Mostrar_Error(10);
+            Mostrar_Error(18);
             resultado = FALSE;
         }
     }
@@ -415,7 +411,7 @@ boolean ValidarMultiplicar(String string_1, Arbol a)
         if( !ValidarAlfanumerico(string_2) )
         {
             //Si el nombre no es alfanumerico, dara el error correspondiente
-            Mostrar_Error(2);
+            Mostrar_Error(19);
             resultado = FALSE;
         }
         else
@@ -424,13 +420,12 @@ boolean ValidarMultiplicar(String string_1, Arbol a)
             if ( ExistePolinomio(a, string_2) )
             {
                 //Si ya existe algun polinomio con ese nombre, dara el error correspondiente
-                Mostrar_Error(3);
+                Mostrar_Error(20);
                 resultado = FALSE;
             }
             else
             {
-                //Se continua cortando el string_1, ahora ya con miras a validar el conjunto de terminos cargados
-                //Se sacan los espacios iniciales si los hubiera
+                //Se continua cortando el string_1, ahora ya con miras a validar los otros 2 nombres de polinomios
                 while ( string_1[i] == ' ' )
                     i++;
 
@@ -452,8 +447,6 @@ boolean ValidarMultiplicar(String string_1, Arbol a)
                 //Termino el string_3 para topearlo hasta donde se leyo del string_1
                 string_3[j] = '\0';
 
-
-                //Se continua cortando el string_1, ahora ya con miras a validar el conjunto de terminos cargados
                 //Se sacan los espacios iniciales si los hubiera
                 while ( string_1[i] == ' ' )
                     i++;
@@ -466,37 +459,53 @@ boolean ValidarMultiplicar(String string_1, Arbol a)
                 string_4 = new char[largo_int+1];
                 string_4[largo_int] = '\0';
 
-                while ( string_1[i] != '\0' )
+                while ( (string_1[i] != ' ') && (string_1[i] != '\0') )
                 {
                     string_4[j] = string_1[i];
                     i++;
                     j++;
                 }
 
-                //Termino el string_3 para topearlo hasta donde se leyo del string_1
+                //Termino el string_4 para topearlo hasta donde se leyo del string_1
                 string_4[j] = '\0';
 
 
-                //Validacion: El polinomio no existe en el arbol
-                if (!ExistePolinomio(a, string_4) )
+                if( !ValidarAlfanumerico(string_3) )
                 {
-                    //Si ya existe algun polinomio con ese nombre, dara el error correspondiente
-                    Mostrar_Error(3);
+                    //Si el nombre no es alfanumerico, dara el error correspondiente
+                    Mostrar_Error(21);
                     resultado = FALSE;
                 }
-
+                else
+                {
+                    if( !ValidarAlfanumerico(string_4) )
+                    {
+                        //Si el nombre no es alfanumerico, dara el error correspondiente
+                        Mostrar_Error(22);
+                        resultado = FALSE;
+                    }
+                    else
+                    {
+                        if (!ExistePolinomio(a, string_3) )
+                        {
+                            //Si ya existe algun polinomio con ese nombre, dara el error correspondiente
+                            Mostrar_Error(23);
+                            resultado = FALSE;
+                        }
+                        else
+                        {
+                            if (!ExistePolinomio(a, string_4) )
+                            {
+                                //Si ya existe algun polinomio con ese nombre, dara el error correspondiente
+                                Mostrar_Error(24);
+                                resultado = FALSE;
+                            }
+                        }
+                    }
+                }
 
                 //Elimino string_3 de la memoria
                 strdestruir(string_4);
-
-                //Validacion: El polinomio no existe en el arbol
-                if (!ExistePolinomio(a, string_3) )
-                {
-                    //Si ya existe algun polinomio con ese nombre, dara el error correspondiente
-                    Mostrar_Error(3);
-                    resultado = FALSE;
-                }
-
 
                 //Elimino string_3 de la memoria
                 strdestruir(string_3);
@@ -510,143 +519,66 @@ boolean ValidarMultiplicar(String string_1, Arbol a)
     return resultado;
 }
 
-
-void ExtraerNomnbresPoli(String string_1, Arbol a, String &string_3, String &string_4)
+void ExtraerNombresPoli(String string_1, String &s_2, String &s_3, String &s_4)
 {
-    boolean resultado = TRUE;
+    int largo_int = strlar(string_1);
+    int i=0, j=0;
 
-    //1era validacion: Se debera ingresar minimamente 2 palabras: el nombre del nuevo polinomio y un termino
-    if(ContarPalabras(string_1) < 3)
+    //Se define string_2 con el tamaño de string_1 inicialmente, ya que no se sabe cuanto es el largo final de lo escrito
+    s_2 = new char[largo_int+1];
+    s_2[largo_int] = '\0';
+
+    while ( string_1[i] != ' ' )
     {
-        if ( ContarPalabras(string_1) == 1 )
-        {
-            Mostrar_Error(11);
-            resultado = FALSE;
-        }
-        else
-        {
-            Mostrar_Error(10);
-            resultado = FALSE;
-        }
-    }
-    else
-    {
-        //2 Validacion: el nombre del polinomio ingresado tiene que ser Alfanumerico
-        String string_2;
-        int largo_int = strlar(string_1);
-        int i=0, j=0;
-
-        //Se define string_2 con el tamaño de string_1 inicialmente, ya que no se sabe cuanto es el largo final de lo escrito
-        string_2 = new char[largo_int+1];
-        string_2[largo_int] = '\0';
-
-        while ( string_1[i] != ' ' )
-        {
-            string_2[j] = string_1[i];
-            i++;
-            j++;
-        }
-
-        //Termino el string_2 para topearlo hasta donde se leyo del string_1
-        string_2[j] = '\0';
-
-        //Al finalizar, en string_2 tendre cargado el posible nombre del polinomio
-        if( !ValidarAlfanumerico(string_2) )
-        {
-            //Si el nombre no es alfanumerico, dara el error correspondiente
-            Mostrar_Error(2);
-            resultado = FALSE;
-        }
-        else
-        {
-            //3era validacion: El polinomio no existe en el arbol
-            if ( ExistePolinomio(a, string_2) )
-            {
-                //Si ya existe algun polinomio con ese nombre, dara el error correspondiente
-                Mostrar_Error(3);
-                resultado = FALSE;
-            }
-            else
-            {
-                //Se continua cortando el string_1, ahora ya con miras a validar el conjunto de terminos cargados
-                //Se sacan los espacios iniciales si los hubiera
-                while ( string_1[i] == ' ' )
-                    i++;
-
-                String string_3;
-                //Notar que la variable i se deja como esta, porque ya arranca desde donde se corto el nombre del polinomio
-                j=0;
-
-                //Se define string_3 con el tamaño de string_1 inicialmente, ya que no se sabe cuanto es el largo final de lo escrito
-                string_3 = new char[largo_int+1];
-                string_3[largo_int] = '\0';
-
-                while ( string_1[i] != ' ' )
-                {
-                    string_3[j] = string_1[i];
-                    i++;
-                    j++;
-                }
-
-                //Termino el string_3 para topearlo hasta donde se leyo del string_1
-                string_3[j] = '\0';
-
-
-                //Se continua cortando el string_1, ahora ya con miras a validar el conjunto de terminos cargados
-                //Se sacan los espacios iniciales si los hubiera
-                while ( string_1[i] == ' ' )
-                    i++;
-
-                String string_4;
-                //Notar que la variable i se deja como esta, porque ya arranca desde donde se corto el nombre del polinomio
-                j=0;
-
-                //Se define string_4 con el tamaño de string_1 inicialmente, ya que no se sabe cuanto es el largo final de lo escrito
-                string_4 = new char[largo_int+1];
-                string_4[largo_int] = '\0';
-
-                while ( string_1[i] != '\0' )
-                {
-                    string_4[j] = string_1[i];
-                    i++;
-                    j++;
-                }
-
-                //Termino el string_3 para topearlo hasta donde se leyo del string_1
-                string_4[j] = '\0';
-
-
-                //Validacion: El polinomio no existe en el arbol
-                if (!ExistePolinomio(a, string_4) )
-                {
-                    //Si ya existe algun polinomio con ese nombre, dara el error correspondiente
-                    Mostrar_Error(3);
-                    resultado = FALSE;
-                }
-
-
-                //Elimino string_3 de la memoria
-                strdestruir(string_4);
-
-                //Validacion: El polinomio no existe en el arbol
-                if (!ExistePolinomio(a, string_3) )
-                {
-                    //Si ya existe algun polinomio con ese nombre, dara el error correspondiente
-                    Mostrar_Error(3);
-                    resultado = FALSE;
-                }
-
-
-                //Elimino string_3 de la memoria
-                strdestruir(string_3);
-            }
-        }
-
-        //Elimino string_2 de la memoria
-        strdestruir(string_2);
+        s_2[j] = string_1[i];
+        i++;
+        j++;
     }
 
+    //Termino el string_2 para topearlo hasta donde se leyo del string_1
+    s_2[j] = '\0';
 
+    while ( string_1[i] == ' ' )
+        i++;
+
+    //Notar que la variable i se deja como esta, porque ya arranca desde donde se corto el nombre del polinomio
+    j=0;
+
+    //Se define string_3 con el tamaño de string_1 inicialmente, ya que no se sabe cuanto es el largo final de lo escrito
+    s_3 = new char[largo_int+1];
+    s_3[largo_int] = '\0';
+
+    while ( string_1[i] != ' ' )
+    {
+        s_3[j] = string_1[i];
+        i++;
+        j++;
+    }
+
+    //Termino el string_3 para topearlo hasta donde se leyo del string_1
+    s_3[j] = '\0';
+
+    //Se continua cortando el string_1, ahora ya con miras a validar el conjunto de terminos cargados
+    //Se sacan los espacios iniciales si los hubiera
+    while ( string_1[i] == ' ' )
+        i++;
+
+    //Notar que la variable i se deja como esta, porque ya arranca desde donde se corto el nombre del polinomio
+    j=0;
+
+    //Se define string_4 con el tamaño de string_1 inicialmente, ya que no se sabe cuanto es el largo final de lo escrito
+    s_4 = new char[largo_int+1];
+    s_4[largo_int] = '\0';
+
+    while ( (string_1[i] != ' ') && (string_1[i] != '\0') )
+    {
+        s_4[j] = string_1[i];
+        i++;
+        j++;
+    }
+
+    //Termino el string_3 para topearlo hasta donde se leyo del string_1
+    s_4[j] = '\0';
 }
 
 //Se establece el comando Mostrar. Si no existe ningun polinomio a mostrar, se imprimira aca tambien el mensaje en pantalla.
@@ -664,111 +596,113 @@ void Mostrar(Arbol a)
 
 void Evaluar(String s_1, Arbol a)
 {
-        long int evaluar=0;
+    long int evaluar=0, numero_eval;
 
-        String string_2;
-        int largo_int = strlar(s_1);
-        int i=0, j=0;
-        string_2 = new char[largo_int+1];
-        string_2[largo_int] = '\0';
-       ///Se obtiene polinomio
-        while ( s_1[i] != ' ' )
-        {
-            string_2[j] = s_1[i];
-            i++;
-            j++;
-        }
-        string_2[j] = '\0';
-         Polinomio p=EncontrarPolinomio(a,string_2);
-            ///Se obtiene numero
-            while ( s_1[i] == ' ' )
-                    i++;
+    String string_2;
+    int largo_int = strlar(s_1);
+    int i=0, j=0;
 
-                String string_3;
+    string_2 = new char[largo_int+1];
+    string_2[largo_int] = '\0';
 
-                j=0;
+    //Se obtiene polinomio
+    while ( s_1[i] != ' ' )
+    {
+        string_2[j] = s_1[i];
+        i++;
+        j++;
+    }
 
-                string_3 = new char[largo_int+1];
-                string_3[largo_int] = '\0';
+    string_2[j] = '\0';
+    Polinomio p=EncontrarPolinomio(a,string_2);
 
-                while ( s_1[i] != '\0' )
-                {
-                    string_3[j] = s_1[i];
-                    i++;
-                    j++;
-                }
-                string_3[j] = '\0';
+    //Se obtiene numero
+    while ( s_1[i] == ' ' )
+        i++;
 
-                long int numero_eval=PasarStringANumero(string_3);
+    String string_3;
+    j=0;
 
-               evaluar=EvaluarRecursivo(DarTerminos(p),numero_eval);
+    string_3 = new char[largo_int+1];
+    string_3[largo_int] = '\0';
 
+    while ( s_1[i] != '\0' )
+    {
+        string_3[j] = s_1[i];
+        i++;
+        j++;
+    }
 
+    string_3[j] = '\0';
 
+    numero_eval = PasarStringANumero(string_3);
+    evaluar = EvaluarRecursivo(DarTerminos(p),numero_eval);
 
+    printf(" Resultado:        %ld\n",evaluar);
 
-    printf("\nEl Resultado es: %ld",evaluar);
-
+    strdestruir(string_2);
+    strdestruir(string_3);
 }
 
  void EsRaiz(String s_1, Arbol a)
 {
-        long int evaluar=0;
+    long int evaluar=0, numero_eval;
 
-        String string_2;
-        int largo_int = strlar(s_1);
-        int i=0, j=0;
-        string_2 = new char[largo_int+1];
-        string_2[largo_int] = '\0';
-       ///Se obtiene polinomio
-        while ( s_1[i] != ' ' )
-        {
-            string_2[j] = s_1[i];
-            i++;
-            j++;
-        }
-        string_2[j] = '\0';
-         Polinomio p=EncontrarPolinomio(a,string_2);
-            ///Se obtiene numero
-            while ( s_1[i] == ' ' )
-                    i++;
+    String string_2;
+    int largo_int = strlar(s_1);
+    int i=0, j=0;
 
-                String string_3;
+    string_2 = new char[largo_int+1];
+    string_2[largo_int] = '\0';
 
-                j=0;
+    //Se obtiene polinomio
+    while ( s_1[i] != ' ' )
+    {
+        string_2[j] = s_1[i];
+        i++;
+        j++;
+    }
 
-                string_3 = new char[largo_int+1];
-                string_3[largo_int] = '\0';
+    string_2[j] = '\0';
 
-                while ( s_1[i] != '\0' )
-                {
-                    string_3[j] = s_1[i];
-                    i++;
-                    j++;
-                }
-                string_3[j] = '\0';
+    Polinomio p=EncontrarPolinomio(a,string_2);
+    //Se obtiene numero
 
-                long int numero_eval=PasarStringANumero(string_3);
+    while ( s_1[i] == ' ' )
+        i++;
 
-               evaluar=EvaluarRecursivo(DarTerminos(p),numero_eval);
+    String string_3;
+    j=0;
 
+    string_3 = new char[largo_int+1];
+    string_3[largo_int] = '\0';
 
+    while ( s_1[i] != '\0' )
+    {
+        string_3[j] = s_1[i];
+        i++;
+        j++;
+    }
+
+    string_3[j] = '\0';
+
+    numero_eval = PasarStringANumero(string_3);
+    evaluar = EvaluarRecursivo(DarTerminos(p),numero_eval);
 
     if (evaluar != 0)
-        printf("\nEl numero %ld No es Raiz del Polinomio", evaluar);
-        else
-            printf("\nEl numero %ld Es Raiz del Polinomio", evaluar);
+        printf(" Resultado:        El numero %ld No es Raiz del Polinomio\n",evaluar);
+    else
+        printf(" Resultado:        El numero %ld Es Raiz del Polinomio\n",evaluar);
 
-
-    //printf("El Resultado es: %ld",evaluar);
-
-    }
+    strdestruir(string_2);
+    strdestruir(string_3);
+}
 
 
 boolean ValidarEvaluar(String s_1, Arbol a)
 {
 
-         boolean resultado = TRUE;
+    boolean resultado = TRUE;
 
     //1era validacion: Se debera ingresar minimamente 2 palabras: el nombre del nuevo polinomio y un numero entero
     if(ContarPalabras(s_1) < 2)
@@ -818,9 +752,8 @@ boolean ValidarEvaluar(String s_1, Arbol a)
             if ( !ExistePolinomio(a, string_2) )
             {
                 //Si no  existe algun polinomio con ese nombre, dara el error correspondiente
-
-                        resultado = FALSE;
-                        Mostrar_Error(14);
+                Mostrar_Error(14);
+                resultado = FALSE;
             }
 
             else
@@ -863,10 +796,7 @@ boolean ValidarEvaluar(String s_1, Arbol a)
                         Mostrar_Error(15);
                         resultado = FALSE;
                     }
-
-
                 }
-
 
                 //Elimino string_3 de la memoria
                 strdestruir(string_3);
@@ -878,7 +808,7 @@ boolean ValidarEvaluar(String s_1, Arbol a)
     }
 
     return resultado;
-        }
+}
 
 
 

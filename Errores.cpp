@@ -12,7 +12,7 @@ void Mostrar_Error(int codigo)
             printf(" Resultado:        Comando no reconocido, vuelva a ingresarlo\n");
             break;
         case 2:
-            printf(" Resultado:        Debe ingresar un nombre de Poinomio valido. El mismo debe ser Alfanumerico\n");
+            printf(" Resultado:        Debe ingresar un nombre de Polinomio valido. El mismo debe ser Alfanumerico\n");
             break;
         case 3:
             printf(" Resultado:        No se puede crear este Polinomio porque el mismo ya existe en el sistema\n");
@@ -48,13 +48,37 @@ void Mostrar_Error(int codigo)
             printf(" Resultado:        Debe ingresar el nombre del polinomio a evaluar, seguido de un numero entero\n");
             break;
         case 14:
-            printf(" Resultado:        No existe polinomio en el arbol");
+            printf(" Resultado:        No existe este polinomio en el arbol\n");
             break;
         case 15:
-            printf(" Resultado:        El numero ingresado no es un numero entero");
+            printf(" Resultado:        El numero ingresado no es un numero entero\n");
             break;
         case 16:
-            printf(" Resultado:        Debe ingresar un numero entero");
+            printf(" Resultado:        Debe ingresar un numero entero\n");
+            break;
+        case 17:
+            printf(" Resultado:        Falta ingresar los polinomios a multiplicar\n");
+            break;
+        case 18:
+            printf(" Resultado:        Se deben ingresar exactamente 3 nombres de polinomios\n");
+            break;
+        case 19:
+            printf(" Resultado:        El nombre del nuevo Polinomio a crear debe ser alfanumerico\n");
+            break;
+        case 20:
+            printf(" Resultado:        El polinomio a crear con el resultado no puede estar ingresado en el sistema previamente\n");
+            break;
+        case 21:
+            printf(" Resultado:        Error con el 2do polinomio ingresado. El nombre no es alfanumerico\n");
+            break;
+        case 22:
+            printf(" Resultado:        Error con el 3er polinomio ingresado. El nombre no es alfanumerico\n");
+            break;
+        case 23:
+            printf(" Resultado:        Error con el 2do polinomio ingresado. El mismo no existe en el sistema\n");
+            break;
+        case 24:
+            printf(" Resultado:        Error con el 3er polinomio ingresado. El mismo no existe en el sistema\n");
             break;
     }
 }

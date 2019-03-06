@@ -31,19 +31,19 @@ void Crear(String string_1, Arbol &a);
 //A raiz de un string pasado, se verifica que el mismo sea valido para con el comando SUMAR
 //(que tenga 3 polinomios, el primero que no exista en el sistema y los otros 2 que si existan)
 //Si no, dara error en cada caso.
-boolean ValidarSumar(String s_1, Arbol a);
+//boolean ValidarSumar(String s_1, Arbol a);
 
 //Se establece la funcion Sumar, para que a raiz de los parametros del string, se sumen los 2 polinomios y se cree
 //un tercero en el arbol
 void Sumar(String s_1, Arbol &a);
 
 //Extrae los nombre de los polinomios
-void ExtraerNomnbresPoli(String string_1, Arbol a, String &string_3, String &string_4);
+void ExtraerNombresPoli(String string_1, String &s_2, String &s_3, String &s_4);
 
 //A raiz de un string pasado, se verifica que el mismo sea valido para con los requerimientos del comando MULTIPLICAR
 //(que tenga 3 polinomios, el primero que no exista en el sistema y los otros 2 que si existan)
 //Si no, dara error en cada caso.
-boolean ValidarMultiplicar(String s_1, Arbol a);
+boolean ValidarSumarYMultiplicar(String s_1, Arbol a);
 
 //Se establece la funcion Multiplicar, para que a raiz de los parametros del string, se multipliquen los 2 polinomios y se cree
 //un tercero en el arbol
