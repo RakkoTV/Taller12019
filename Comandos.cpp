@@ -127,9 +127,9 @@ void ComenzarComando(Comandos com_1, String string_1, Arbol &a)
                 {
                     printf("\n HOLAAAAAAAAAAAA");
                     ExtraerNomnbresPoli(string_2, a, s_3, s_4);
-                    EncontrarPolinomio(a, s_3);
-                    EncontrarPolinomio(a, s_4);
-                    MultiplicarPoli(EncontrarPolinomio(a, s_3).Lterminos, EncontrarPolinomio(a, s_4).Lterminos);
+                    //EncontrarPolinomio(a, s_3);
+                    //EncontrarPolinomio(a, s_4);
+                    MultiplicarPoli(DarTerminos(EncontrarPolinomio(a, s_3)), DarTerminos(EncontrarPolinomio(a, s_4)));
                 }
 
 
