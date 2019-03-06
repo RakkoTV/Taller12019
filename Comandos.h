@@ -47,7 +47,7 @@ boolean ValidarSumarYMultiplicar(String s_1, Arbol a);
 
 //Se establece la funcion Multiplicar, para que a raiz de los parametros del string, se multipliquen los 2 polinomios y se cree
 //un tercero en el arbol
-void Multiplicar(String s_1, Arbol &a);
+void Multiplicar(String string_2, Arbol &a);
 
 //Se valida el comando evaluar, verificando que el string tenga el nombre de un polinomio valido, que el mismo ya este en el
 //arbol actual, y que el numero a evaluar sea efectivamente un numero y ademas sea entero

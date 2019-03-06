@@ -24,7 +24,7 @@ void Mostrar_Polinomio(Polinomio P)
 {
     print(P.nombre);
     printf(" = ");
-    Mostrarlista(P.Lterminos);
+    MostrarLista(P.Lterminos);
 }
 
 void DarNombre(Polinomio P, String &s_1)

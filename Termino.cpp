@@ -1,8 +1,19 @@
 #include "Termino.h"
 
+void Cargar_Termino(Termino &T, long int coeficiente_1, int exponente_1)
+{
+    //Se carga el coeficiente transformando el mismo a numero
+    T.coeficiente= coeficiente_1;
 
+    //El signo solo para mostrarlo
+    if(T.coeficiente<0)
+        T.signo='-';
+    else
+        T.signo='+';
 
-
+    //El exponente ya calculado en la lista previamente
+    T.exponente = exponente_1;
+}
 
 int DarCoeficiente(Termino T)
 {
@@ -76,8 +87,14 @@ void SubirTermino(FILE * stream, Termino &T)
 Termino MultiplicaTerm (Termino T1, Termino T2)
 {
   Termino T3;
-  T3.coeficiente= T1.coeficiente * T2.coeficiente;
-  T3.exponente= T1.exponente + T2.exponente;
+  T3.coeficiente = T1.coeficiente * T2.coeficiente;
+  T3.exponente = T1.exponente + T2.exponente;
+
+  if(T3.coeficiente < 0 )
+    T3.signo = '-';
+  else
+    T3.signo = '+';
+
   return T3;
 }
 

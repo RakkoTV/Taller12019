@@ -13,6 +13,8 @@ typedef struct {
 } Termino;
 
 //CARGAR/MOSTRAR
+void Cargar_Termino(Termino &T, long int coeficiente_1, int exponente_1);
+
 //La funcion carar tambien se configurara para que el dato del input sea un string previo.
 //PRECONDICION: El string pasado no puede tener ni el nombre del comando ni el del polinomio, debe haberse validado previamente
 //              y solo debe hacer referencia a un termino valido.

@@ -123,24 +123,8 @@ void ComenzarComando(Comandos com_1, String string_1, Arbol &a)
         }
         case MULTIPLICAR:
         {
-                if (ValidarSumarYMultiplicar(string_2,a))
-                {
-                    String s_2,s_3,s_4;
-
-                    ExtraerNombresPoli(string_2, s_2, s_3, s_4);
-
-                    printf(" Resultado:        \n");
-                    printf("                   S2 - ");print(s_2);printf("\n");
-                    printf("                   S3 - ");print(s_3);printf("\n");
-                    printf("                   S4 - ");print(s_4);printf("\n");
-
-                    strdestruir(s_2);
-                    strdestruir(s_3);
-                    strdestruir(s_4);
-
-                    //MultiplicarPoli(DarTerminos(EncontrarPolinomio(a, s_3)), DarTerminos(EncontrarPolinomio(a, s_4)));
-                }
-                //Crear(string_2, a);
+            if (ValidarSumarYMultiplicar(string_2,a))
+                Multiplicar(string_2, a);
             break;
         }
         case EVALUAR:
@@ -581,6 +565,37 @@ void ExtraerNombresPoli(String string_1, String &s_2, String &s_3, String &s_4)
     s_4[j] = '\0';
 }
 
+//Se establece la funcion Multiplicar, para que a raiz de los parametros del string, se multipliquen los 2 polinomios y se cree
+//un tercero en el arbol
+void Multiplicar(String string_2, Arbol &a)
+{
+    String s_2,s_3,s_4;
+    Lista lista_resultado;
+    Polinomio nuevo_pol;
+
+    //Extraigo los nombres de los polinomios a usar con la funcion auxiliar
+    ExtraerNombresPoli(string_2, s_2, s_3, s_4);
+
+    //Genero una nueva lista con la multiplicacion de las listas de terminos de ambos polinomios
+    lista_resultado = MultiplicarPoli(DarTerminos(EncontrarPolinomio(a, s_3)), DarTerminos(EncontrarPolinomio(a, s_4)));
+
+    //Genero mi nuevo polinomio con el nombre de s_2 y la lista final
+    Cargar_Polinomio(nuevo_pol, s_2, lista_resultado);
+
+    //Inserto el polinomio final en el arbol
+    Insert(a, nuevo_pol);
+
+    //Destruyo los string auxiliares
+    strdestruir(s_2);
+    strdestruir(s_3);
+    strdestruir(s_4);
+
+    //Muestro el Polinomio creado como resultado
+    printf(" Resultado:        ");
+    Mostrar_Polinomio(nuevo_pol);
+    printf("\n");
+}
+
 //Se establece el comando Mostrar. Si no existe ningun polinomio a mostrar, se imprimira aca tambien el mensaje en pantalla.
 //Si no, se invoca a las funciones de mostrar arbol, polinomio y termino en cada caso.
 void Mostrar(Arbol a)
@@ -690,9 +705,9 @@ void Evaluar(String s_1, Arbol a)
     evaluar = EvaluarRecursivo(DarTerminos(p),numero_eval);
 
     if (evaluar != 0)
-        printf(" Resultado:        El numero %ld No es Raiz del Polinomio\n",evaluar);
+        printf(" Resultado:        el numero %ld NO es Raiz del Polinomio\n",evaluar);
     else
-        printf(" Resultado:        El numero %ld Es Raiz del Polinomio\n",evaluar);
+        printf(" Resultado:        el numero %ld es Raiz del Polinomio\n",evaluar);
 
     strdestruir(string_2);
     strdestruir(string_3);

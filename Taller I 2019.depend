@@ -26,7 +26,7 @@
 1551212653 c:\ude\taller i 2019\errores.h
 	"String.h"
 
-1551901813 c:\ude\taller i 2019\comandos.h
+1551908345 c:\ude\taller i 2019\comandos.h
 	"Errores.h"
 	"Archivo.h"
 	"Arbol.h"
@@ -37,10 +37,10 @@
 1551384552 c:\ude\taller i 2019\polinomio.h
 	"ListaTerminos.h"
 
-1551723034 c:\ude\taller i 2019\listaterminos.h
+1551908693 c:\ude\taller i 2019\listaterminos.h
 	"Termino.h"
 
-1551896689 c:\ude\taller i 2019\termino.h
+1551906933 c:\ude\taller i 2019\termino.h
 	"String.h"
 	"ArreglodinamicoNumero.h"
 	"String.h"
@@ -51,18 +51,18 @@
 1551121777 c:\ude\taller i 2019\arreglodinamiconumero.h
 	"Boolean.h"
 
-1551896689 source:c:\ude\taller i 2019\termino.cpp
+1551906991 source:c:\ude\taller i 2019\termino.cpp
 	"Termino.h"
 
-1551901766 source:c:\ude\taller i 2019\comandos.cpp
+1551908607 source:c:\ude\taller i 2019\comandos.cpp
 	"Comandos.h"
 
-1551723034 source:c:\ude\taller i 2019\listaterminos.cpp
+1551909111 source:c:\ude\taller i 2019\listaterminos.cpp
 	"ListaTerminos.h"
 
 1551129764 D
 
-1551388677 source:c:\ude\taller i 2019\polinomio.cpp
+1551904664 source:c:\ude\taller i 2019\polinomio.cpp
 	"Polinomio.h"
 
 1551293689 source:c:\ude\taller i 2019\menu.cpp

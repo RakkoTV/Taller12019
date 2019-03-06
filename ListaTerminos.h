@@ -21,8 +21,6 @@ void InsFront(Lista &L, Termino T);
 Termino Primero(Lista L);
 //Borra el primer valor almacenado en la lista
 void Resto(Lista &L);
-//Muestra la Lista de Terminos
-void Mostrarlista (Lista L);
 //Dada una lista y un termino, agrega dicho termino al final de la lista
 void InsBackRecu(Lista &L, Termino T_1);
 
@@ -51,8 +49,7 @@ void SubirLista(FILE * stream, Lista &L);
 void InsOrdenada(Lista &L, Termino Ter);
 
 //OPERACIONES (SUMA, MULTIPLICACION)
-
-Lista MultiplicarPoli(Lista Poli1, Lista Poli2);
+Lista MultiplicarPoli(Lista lista_1, Lista lista_2);
 
 long int EvaluarRecursivo(Lista L,long int n);
 #endif // LISTATERMINOS_H_INCLUDED

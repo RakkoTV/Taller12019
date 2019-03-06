@@ -37,7 +37,7 @@ void Resto(Lista &L)
     aux;
 }
 
-void Mostrarlista (Lista L)
+void MostrarLista (Lista L)
 {
     while(L!=NULL)
     {
@@ -64,58 +64,6 @@ void InsBackRecu(Lista &L, Termino T_1)
             aux_nodo->sig = NULL;
             L->sig = aux_nodo;
         }
-}
-
-void InsOrdenada(Lista &L, Termino Ter) //Num;
-{
-    Lista NuevoNodo= new nodo;
-    NuevoNodo->info=Ter;
-    Lista Aux1=L;
-    Lista Aux2; //Lo puse a null no se si va
-
-while((Aux1 !=NULL)&&(DarExponente(Ter)<DarExponente(Aux1->info)))
-
-    //Programar esa funcion boolean
-    {
-        Aux2=Aux1;
-        Aux1=Aux1->sig;
-    }
-    if(L==Aux1) //No entro al while, va al principio
-    {
-        L=NuevoNodo;
-    }
-    else
-        {
-        Aux2->sig=NuevoNodo;//Entro al while
-        }
-    NuevoNodo->sig=Aux1; //Lo muevo
-}
-
-Lista MultiplicarPoli(Lista Pol1, Lista Pol2)
-{
-
-    Lista Nueva, Aux;
-    Aux=Pol2;
-    Crear_Lista(Nueva);
-    while(Pol1 !=NULL)
-    {
-
-        while(Aux!=NULL)
-        {
-
-
-           InsOrdenada(Nueva, MultiplicaTerm(Primero(Pol1),Primero(Aux)));
-
-        Aux=Aux->sig;
-        }
-        Aux=Pol2;
-        Pol1=Pol1->sig;
-
-    }
-
-    return Nueva;
-
-
 }
 
 void Crear_Lista_Desde_String(Lista &L, String string_1)
@@ -161,19 +109,103 @@ void Crear_Lista_Desde_String(Lista &L, String string_1)
     }
 
 }
+
+Lista MultiplicarPoli(Lista lista_1, Lista lista_2)
+{
+    Lista resultado_inicial, resultado_final, aux_1, aux_2;
+    long int coeficiente_aux;
+    int maximo_exponente = 0;
+    aux_1 = lista_1;
+    aux_2 = lista_2;
+    Crear_Lista(resultado_inicial);
+    Crear_Lista(resultado_final);
+
+    while( aux_1 != NULL )
+    {
+        while ( aux_2 != NULL )
+        {
+            InsFront(resultado_inicial, MultiplicaTerm(aux_1->info, aux_2->info));
+            aux_2 = aux_2->sig;
+        }
+        aux_2 = lista_2;
+        aux_1 = aux_1->sig;
+    }
+
+    //En el resultado_inicial tendre la lista final pero con los terminos de igual exponenete, sin sumar
+    //Precisare sumarlos ahora
+
+    //Se inicia teniendo en cuenta el maximo exponente encontrado
+    aux_1 = resultado_inicial;
+    while( aux_1 != NULL )
+    {
+        if( DarExponente(aux_1->info) > maximo_exponente )
+            maximo_exponente = DarExponente(aux_1->info);
+
+        aux_1 = aux_1->sig;
+    }
+
+    //En maximo_exponente tendre cargado el maximo exponente de la lista con los resultados primarios de la multiplicacion
+    //Para cada exponenete desde el maximo, hasta el 0, se necesita sumar todos los termino
+    while( maximo_exponente >= 0 )
+    {
+        coeficiente_aux = 0;
+
+        //Recorro toda la lista para ver los terminos que tengan el exponente en cuestion
+        aux_1 = resultado_inicial;
+        while( aux_1 != NULL )
+        {
+            if( DarExponente(aux_1->info) == maximo_exponente )
+                coeficiente_aux = coeficiente_aux + DarCoeficiente(aux_1->info);
+
+            aux_1 = aux_1->sig;
+        }
+
+        //Creo el termino auxiliar que contiene la suma de todos los coeficientes encontrados para este exponente
+        Termino termino_aux;
+        Cargar_Termino(termino_aux, coeficiente_aux, maximo_exponente);
+
+        //Inserto dicho termino en la nueva lista ordenada de resultado
+        InsBackRecu(resultado_final, termino_aux);
+
+        //Minimizo un exponente a buscar, hasta haber recorrido todo por completo
+        maximo_exponente--;
+    }
+
+    //Borro los punteros innecesarios
+    BorrarLista(resultado_inicial);
+    aux_1 = NULL;
+    aux_2 = NULL;
+
+    //--> MOSTRAR A LA PROFE PORQUE NO SE ELIMINA LA LISTA <--
+    //printf(" - ");
+    //MostrarLista(resultado_inicial);
+    //printf(" - \n");
+
+    //Devuelvo la lista ordenada
+    return resultado_final;
+}
+
 long int EvaluarRecursivo(Lista L, long int n)
 {
-     long int resultado;
+    long int resultado;
 
     if (L==NULL)
         return 0;
-        else
-       resultado=((potenciaLong(n,DarExponente(L->info)))*DarCoeficiente(L->info));
+    else
+        resultado=((potenciaLong(n,DarExponente(L->info)))*DarCoeficiente(L->info));
 
-     return resultado+EvaluarRecursivo(L->sig,n);
-
+    return resultado+EvaluarRecursivo(L->sig,n);
 }
 
-
+//Se elimina termino a termino todo lo guardado en esa lista. Esto se da para eliminar toda la memoria dinamica almacenada
+//en esta lista, dejando nulos todos los punteros y estructuras de terminos.
+void BorrarLista(Lista &L)
+{
+    if( L != NULL )
+    {
+        BorrarLista(L->sig);
+        delete L;
+    }
+}
 
 
