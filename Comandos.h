@@ -35,7 +35,7 @@ void Crear(String string_1, Arbol &a);
 
 //Se establece la funcion Sumar, para que a raiz de los parametros del string, se sumen los 2 polinomios y se cree
 //un tercero en el arbol
-void Sumar(String s_1, Arbol &a);
+void Sumar(String string_2, Arbol &a);
 
 //Extrae los nombre de los polinomios
 void ExtraerNombresPoli(String string_1, String &s_2, String &s_3, String &s_4);

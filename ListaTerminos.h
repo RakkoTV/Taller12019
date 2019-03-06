@@ -49,6 +49,8 @@ void SubirLista(FILE * stream, Lista &L);
 void InsOrdenada(Lista &L, Termino Ter);
 
 //OPERACIONES (SUMA, MULTIPLICACION)
+Lista SumarPoli(Lista lista_1, Lista lista_2);
+
 Lista MultiplicarPoli(Lista lista_1, Lista lista_2);
 
 long int EvaluarRecursivo(Lista L,long int n);

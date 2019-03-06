@@ -118,7 +118,7 @@ void ComenzarComando(Comandos com_1, String string_1, Arbol &a)
         case SUMAR:
         {
             if (ValidarSumarYMultiplicar(string_2,a))
-                printf(" Resultado:        \n");
+                Sumar(string_2, a);
             break;
         }
         case MULTIPLICAR:
@@ -565,6 +565,37 @@ void ExtraerNombresPoli(String string_1, String &s_2, String &s_3, String &s_4)
     s_4[j] = '\0';
 }
 
+//Se establece la funcion Sumar, para que a raiz de los parametros del string, se sumen los 2 polinomios y se cree
+//un tercero en el arbol
+void Sumar(String string_2, Arbol &a)
+{
+    String s_2,s_3,s_4;
+    Lista lista_resultado;
+    Polinomio nuevo_pol;
+
+    //Extraigo los nombres de los polinomios a usar con la funcion auxiliar
+    ExtraerNombresPoli(string_2, s_2, s_3, s_4);
+
+    //Genero una nueva lista con la multiplicacion de las listas de terminos de ambos polinomios
+    lista_resultado = SumarPoli(DarTerminos(EncontrarPolinomio(a, s_3)), DarTerminos(EncontrarPolinomio(a, s_4)));
+
+    //Genero mi nuevo polinomio con el nombre de s_2 y la lista final
+    Cargar_Polinomio(nuevo_pol, s_2, lista_resultado);
+
+    //Inserto el polinomio final en el arbol
+    Insert(a, nuevo_pol);
+
+    //Destruyo los string auxiliares
+    strdestruir(s_2);
+    strdestruir(s_3);
+    strdestruir(s_4);
+
+    //Muestro el Polinomio creado como resultado
+    printf(" Resultado:        ");
+    Mostrar_Polinomio(nuevo_pol);
+    printf("\n");
+}
+
 //Se establece la funcion Multiplicar, para que a raiz de los parametros del string, se multipliquen los 2 polinomios y se cree
 //un tercero en el arbol
 void Multiplicar(String string_2, Arbol &a)
@@ -659,7 +690,7 @@ void Evaluar(String s_1, Arbol a)
     strdestruir(string_3);
 }
 
- void EsRaiz(String s_1, Arbol a)
+void EsRaiz(String s_1, Arbol a)
 {
     long int evaluar=0, numero_eval;
 
@@ -705,14 +736,13 @@ void Evaluar(String s_1, Arbol a)
     evaluar = EvaluarRecursivo(DarTerminos(p),numero_eval);
 
     if (evaluar != 0)
-        printf(" Resultado:        el numero %ld NO es Raiz del Polinomio\n",evaluar);
+        printf(" Resultado:        el numero %ld NO es Raiz del Polinomio\n", numero_eval);
     else
-        printf(" Resultado:        el numero %ld es Raiz del Polinomio\n",evaluar);
+        printf(" Resultado:        el numero %ld es Raiz del Polinomio\n", numero_eval);
 
     strdestruir(string_2);
     strdestruir(string_3);
 }
-
 
 boolean ValidarEvaluar(String s_1, Arbol a)
 {

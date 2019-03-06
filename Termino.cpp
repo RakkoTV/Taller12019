@@ -98,27 +98,13 @@ Termino MultiplicaTerm (Termino T1, Termino T2)
   return T3;
 }
 
-//Percondicion que los exponentes sean iguales
-Termino SumarTermino(Termino T, Termino T2)
-{
-
-    T.coeficiente=T.coeficiente + T2.coeficiente;
-
-
-   return T;
-
-}
 long int potenciaLong(long int x, int y)
 {
-
-        if (y<=0)
-                return 1;
-        else
-                return x*(potenciaLong(x,y-1));
-
+    if (y<=0)
+        return 1;
+    else
+        return x*(potenciaLong(x,y-1));
 }
-
-
 
 
 

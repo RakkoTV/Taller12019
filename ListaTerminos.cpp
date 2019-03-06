@@ -110,6 +110,83 @@ void Crear_Lista_Desde_String(Lista &L, String string_1)
 
 }
 
+Lista SumarPoli(Lista lista_1, Lista lista_2)
+{
+    Lista resultado_inicial, resultado_final, aux_1, aux_2;
+    long int coeficiente_aux;
+    int maximo_exponente = 0;
+    aux_1 = lista_1;
+    aux_2 = lista_2;
+    Crear_Lista(resultado_inicial);
+    Crear_Lista(resultado_final);
+
+    //Se concatena la lista_1 junto con la lista_2 para ser sumarizada mas adelante
+    while( aux_1 != NULL )
+    {
+        InsFront(resultado_inicial, aux_1->info);
+        aux_1 = aux_1->sig;
+    }
+
+    while ( aux_2 != NULL )
+    {
+        InsFront(resultado_inicial, aux_2->info);
+        aux_2 = aux_2->sig;
+    }
+
+    //En el resultado_inicial tendre la lista final pero con los terminos de igual exponenete, sin sumar
+    //Precisare sumarlos ahora
+
+    //Se inicia teniendo en cuenta el maximo exponente encontrado
+    aux_1 = resultado_inicial;
+    while( aux_1 != NULL )
+    {
+        if( DarExponente(aux_1->info) > maximo_exponente )
+            maximo_exponente = DarExponente(aux_1->info);
+
+        aux_1 = aux_1->sig;
+    }
+
+    //En maximo_exponente tendre cargado el maximo exponente de la lista con los resultados primarios de la multiplicacion
+    //Para cada exponenete desde el maximo, hasta el 0, se necesita sumar todos los termino
+    while( maximo_exponente >= 0 )
+    {
+        coeficiente_aux = 0;
+
+        //Recorro toda la lista para ver los terminos que tengan el exponente en cuestion
+        aux_1 = resultado_inicial;
+        while( aux_1 != NULL )
+        {
+            if( DarExponente(aux_1->info) == maximo_exponente )
+                coeficiente_aux = coeficiente_aux + DarCoeficiente(aux_1->info);
+
+            aux_1 = aux_1->sig;
+        }
+
+        //Creo el termino auxiliar que contiene la suma de todos los coeficientes encontrados para este exponente
+        Termino termino_aux;
+        Cargar_Termino(termino_aux, coeficiente_aux, maximo_exponente);
+
+        //Inserto dicho termino en la nueva lista ordenada de resultado
+        InsBackRecu(resultado_final, termino_aux);
+
+        //Minimizo un exponente a buscar, hasta haber recorrido todo por completo
+        maximo_exponente--;
+    }
+
+    //Borro los punteros innecesarios
+    BorrarLista(resultado_inicial);
+    aux_1 = NULL;
+    aux_2 = NULL;
+
+    //--> MOSTRAR A LA PROFE PORQUE NO SE ELIMINA LA LISTA <--
+    //printf(" - ");
+    //MostrarLista(resultado_inicial);
+    //printf(" - \n");
+
+    //Devuelvo la lista ordenada
+    return resultado_final;
+}
+
 Lista MultiplicarPoli(Lista lista_1, Lista lista_2)
 {
     Lista resultado_inicial, resultado_final, aux_1, aux_2;
