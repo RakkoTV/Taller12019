@@ -283,6 +283,42 @@ boolean ValidarAlfanumerico(String string_1)
     return es_alfanumerico;
 }
 
+//A raiz de un string, valida si el mismo es o no un alfanumerico y que tenga un punto
+boolean ValidarAlfanumericoParaArchivo(String string_1)
+{
+    int i=0;
+    boolean es_alfanumerico = TRUE;
+
+    while( (string_1[i] != '\0') && (es_alfanumerico == TRUE) )
+    {
+        if(
+          /* Letras de la A-Z */
+          ( (int(string_1[i]) >= 65) && (int(string_1[i]) <= 90) )
+        )
+            i++;
+        else
+            /* Letras de la a-z */
+            if(
+              ( (int(string_1[i]) >= 97) && (int(string_1[i]) <= 122) )
+            )
+            i++;
+            else
+                /* Numeros de 0-9 */
+                if(
+                   ( (int(string_1[i]) >= 48) && (int(string_1[i]) <= 57) )
+                )
+                    i++;
+                else
+                    /* El espacio y el punto tambien lo dara como valido */
+                    if ( (int(string_1[i]) == 32) || ((int(string_1[i]) == 46)) )
+                        i++;
+                    else
+                        es_alfanumerico = FALSE;
+    }
+
+    return es_alfanumerico;
+}
+
 //Se lee una cadena de caracteres de posibles terminos, y se devuelve TRUE/FALSE si
 //se encontro caracteres extraños. Esto validara que los posibles terminos solo
 //tengan numeros, y que los mismos sean enteros, porque si se ingresa un “.” o una
@@ -538,6 +574,30 @@ boolean ValidarPrimerTermino(String string_1)
     return resultado;
 }
 
+//A raiz de un string que contiene una posible extension de un archivo, se valida si la misma es correcta (txt)
+boolean ValidarExtension(String string_1)
+{
+    boolean resultado = FALSE;
+    int cantidad_letras = strlar(string_1);
+    int i=0;
+
+    if ( cantidad_letras >= 5 )
+    {
+        while ( (string_1[i] != '\0') && (string_1[i] != '.') )
+            i++;
+
+        //Llegados a este punto, en i tendre cargado cuando se encontro un "."
+        cantidad_letras = cantidad_letras - i;
+
+        if( cantidad_letras == 4 )
+        {
+            if( (string_1[i] == '.') && (string_1[i+1] == 't') && (string_1[i+2] == 'x') && (string_1[i+3] == 't') )
+                resultado = TRUE;
+        }
+    }
+
+    return resultado;
+}
 
 
 

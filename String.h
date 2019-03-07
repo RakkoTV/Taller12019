@@ -57,6 +57,9 @@ void Subir_String(FILE * stream, String &string_1);
 //A raiz de un string, valida si el mismo es o no un alfanumerico
 boolean ValidarAlfanumerico(String string_1);
 
+//A raiz de un string, valida si el mismo es o no un alfanumerico y que tenga un punto
+boolean ValidarAlfanumericoParaArchivo(String string_1);
+
 //Se lee una cadena de caracteres de posibles terminos, y se devuelve TRUE/FALSE si
 //se encontro caracteres extraños. Esto validara que los posibles terminos solo
 //tengan numeros, y que los mismos sean enteros, porque si se ingresa un “.” o una

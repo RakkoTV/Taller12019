@@ -80,6 +80,24 @@ void Mostrar_Error(int codigo)
         case 24:
             printf(" Resultado:        Error con el 3er polinomio ingresado. El mismo no existe en el sistema\n");
             break;
+        case 25:
+            printf(" Resultado:        Falta ingresar el nombre del archivo\n");
+            break;
+        case 26:
+            printf(" Resultado:        Debe ingresar solo el nombre del polinomio seguido del nombre de un archivo valido\n");
+            break;
+        case 27:
+            printf(" Resultado:        El nombre del polinomio ingresado debe ser alfanumerico\n");
+            break;
+        case 28:
+            printf(" Resultado:        El polinomio no existe en el sistema\n");
+            break;
+        case 29:
+            printf(" Resultado:        El nombre del archivo debe ser Alfanumerico\n");
+            break;
+        case 30:
+            printf(" Resultado:        El nombre del archivo debe tener minimo 1 letra y finalizar en '.txt'\n");
+            break;
     }
 }
 
