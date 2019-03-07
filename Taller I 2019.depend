@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1550008883 source:c:\ude\taller i 2019\archivo.cpp
+1551986366 source:c:\ude\taller i 2019\archivo.cpp
 	"Archivo.h"
 
 1550008883 c:\ude\taller i 2019\archivo.h
@@ -34,13 +34,13 @@
 1551384431 c:\ude\taller i 2019\arbol.h
 	"Polinomio.h"
 
-1551384552 c:\ude\taller i 2019\polinomio.h
+1551988013 c:\ude\taller i 2019\polinomio.h
 	"ListaTerminos.h"
 
-1551910580 c:\ude\taller i 2019\listaterminos.h
+1551987253 c:\ude\taller i 2019\listaterminos.h
 	"Termino.h"
 
-1551906933 c:\ude\taller i 2019\termino.h
+1551987190 c:\ude\taller i 2019\termino.h
 	"String.h"
 	"ArreglodinamicoNumero.h"
 	"String.h"
@@ -51,24 +51,24 @@
 1551121777 c:\ude\taller i 2019\arreglodinamiconumero.h
 	"Boolean.h"
 
-1551910543 source:c:\ude\taller i 2019\termino.cpp
+1551987092 source:c:\ude\taller i 2019\termino.cpp
 	"Termino.h"
 
-1551916340 source:c:\ude\taller i 2019\comandos.cpp
+1551988893 source:c:\ude\taller i 2019\comandos.cpp
 	"Comandos.h"
 
-1551911016 source:c:\ude\taller i 2019\listaterminos.cpp
+1551988409 source:c:\ude\taller i 2019\listaterminos.cpp
 	"ListaTerminos.h"
 
 1551129764 D
 
-1551904664 source:c:\ude\taller i 2019\polinomio.cpp
+1551987993 source:c:\ude\taller i 2019\polinomio.cpp
 	"Polinomio.h"
 
 1551293689 source:c:\ude\taller i 2019\menu.cpp
 	"Menu.h"
 
-1551915996 source:c:\ude\taller i 2019\errores.cpp
+1551986154 source:c:\ude\taller i 2019\errores.cpp
 	"Errores.h"
 
 1551213725 source:c:\ude\taller i 2019\testingmodulo_string.cpp

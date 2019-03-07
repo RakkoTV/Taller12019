@@ -70,32 +70,30 @@ void Mostrar_Termino(Termino T)
 
 void BajarTermino(FILE * stream, Termino T)
 {
- fwrite(&T.signo,sizeof(char),1,stream);
- fwrite(&T.coeficiente,sizeof(long int),1,stream);
- fwrite(&T.exponente,sizeof(int),1,stream);
+     fwrite(&T.signo,sizeof(char),1,stream);
+     fwrite(&T.coeficiente,sizeof(long int),1,stream);
+     fwrite(&T.exponente,sizeof(int),1,stream);
 }
 
 void SubirTermino(FILE * stream, Termino &T)
 {
- fread(&T.signo,sizeof(char),1,stream);
- fread(&T.coeficiente,sizeof(long int),1,stream);
- fread(&T.exponente,sizeof(int),1,stream);
-
+     fread(&T.signo,sizeof(char),1,stream);
+     fread(&T.coeficiente,sizeof(long int),1,stream);
+     fread(&T.exponente,sizeof(int),1,stream);
 }
-
 
 Termino MultiplicaTerm (Termino T1, Termino T2)
 {
-  Termino T3;
-  T3.coeficiente = T1.coeficiente * T2.coeficiente;
-  T3.exponente = T1.exponente + T2.exponente;
+    Termino T3;
+    T3.coeficiente = T1.coeficiente * T2.coeficiente;
+    T3.exponente = T1.exponente + T2.exponente;
 
-  if(T3.coeficiente < 0 )
+    if(T3.coeficiente < 0 )
     T3.signo = '-';
-  else
+    else
     T3.signo = '+';
 
-  return T3;
+    return T3;
 }
 
 long int potenciaLong(long int x, int y)

@@ -285,4 +285,33 @@ void BorrarLista(Lista &L)
     }
 }
 
+//Guardara todos los terminos de la lista dentro del archivo apuntado por stream. Para cada termino, se invocara la funcion BajarTermino
+//PRECONDICION: El mismo ya fue abierto previamente, y en modo "wb" o "ab"
+void BajarLista(FILE * stream, Lista L)
+{
+    if( L != NULL )
+    {
+        BajarLista(stream, L->sig);
+        //Se baja desde atras para adelante, asi si la levanto se que con el InsFront ya lo puedo tomar
+
+        //Se baja el termino y listo
+        BajarTermino(stream, L->info);
+    }
+}
+
+//Leera del archivo apuntado por stream, y lo levantara en memoria como una lista de Terminos. Para cada termino, se utilizara a funcion SubirTermino
+//PRECONDICION: stream ya fue abierto previamente, y en modo "rb"
+void SubirLista(FILE * stream, Lista &L)
+{
+    Termino t_1;
+
+    //Minimamente se que se habra ingresado algun termino en el archivo, porque todos los polinomios tienen como minimo 1 termino
+    SubirTermino(stream, t_1);
+
+    while(!feof(stream))
+    {
+        InsFront(L, t_1);
+        SubirTermino(stream, t_1);
+    }
+}
 

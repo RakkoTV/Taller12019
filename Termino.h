@@ -33,7 +33,7 @@ char DarSigno(Termino T);
 
 //OPERACIONES ESPECIFICAS
 //Se deja nulo el termino(No deberia realizarse aqui ya que termino no utiliza memoria dinamica)
-void BorrarTermino(Termino &T);
+//void BorrarTermino(Termino &T);
 
 //Guardara el Termino dentro del archivo apuntado por stream
 //PRECONDICION: El mismo ya fue abierto previamente, y en modo "wb" o "ab"
@@ -42,16 +42,14 @@ void BajarTermino(FILE * stream, Termino T);
 //Leera del archivo apuntado por stream, y lo levantara en memoria en Termino
 //PRECONDICION: stream ya fue abierto previamente, y en modo "rb"
 void SubirTermino(FILE * stream, Termino &T);
-//devuelte entero
-int DevuelveINT (array_dinamico a, int cant);
 
 //Potencia enteros
-int potencia(int x, int y);
+//int potencia(int x, int y);
 //Potencia enteros largos
 long int potenciaLong(long int x, int y);
 
 //SUMA Percondicion que los exponentes sean iguales
-Termino SumarTermino(Termino T, Termino T2);
+//Termino SumarTermino(Termino T, Termino T2);
 //MULTIPLICA
 Termino MultiplicaTerm (Termino T1, Termino T2);
 

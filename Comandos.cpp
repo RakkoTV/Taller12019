@@ -117,13 +117,13 @@ void ComenzarComando(Comandos com_1, String string_1, Arbol &a)
         }
         case SUMAR:
         {
-            if (ValidarSumarYMultiplicar(string_2,a))
+            if (ValidarSumarYMultiplicar(string_2, a))
                 Sumar(string_2, a);
             break;
         }
         case MULTIPLICAR:
         {
-            if (ValidarSumarYMultiplicar(string_2,a))
+            if (ValidarSumarYMultiplicar(string_2, a))
                 Multiplicar(string_2, a);
             break;
         }
@@ -135,8 +135,8 @@ void ComenzarComando(Comandos com_1, String string_1, Arbol &a)
         }
         case ESRAIZ:
         {
-            if (ValidarEvaluar(string_2,a))
-                EsRaiz(string_2,a);
+            if (ValidarEvaluar(string_2, a))
+                EsRaiz(string_2, a);
             break;
         }
         case MOSTRAR:
@@ -146,13 +146,14 @@ void ComenzarComando(Comandos com_1, String string_1, Arbol &a)
         }
         case GUARDAR:
         {
-            if(ValidarGuardar(string_2,a))
-                printf(" Resultado:        Guardado\n");
+            if (ValidarGuardar(string_2, a))
+                Guardar(string_2, a);
             break;
         }
         case RECUPERAR:
         {
-
+            if (ValidarRecuperar(string_2, a))
+                Recuperar(string_2, a);
             break;
         }
     }
@@ -751,7 +752,7 @@ boolean ValidarEvaluar(String s_1, Arbol a)
     boolean resultado = TRUE;
 
     //1era validacion: Se debera ingresar minimamente 2 palabras: el nombre del nuevo polinomio y un numero entero
-    if(ContarPalabras(s_1) < 2)
+    if(ContarPalabras(s_1) != 2)
     {
         if ( ContarPalabras(s_1) == 1 )
         {
@@ -760,8 +761,16 @@ boolean ValidarEvaluar(String s_1, Arbol a)
         }
         else
         {
-            Mostrar_Error(13);
-            resultado = FALSE;
+            if ( ContarPalabras(s_1) == 0 )
+            {
+                Mostrar_Error(13);
+                resultado = FALSE;
+            }
+            else
+            {
+                Mostrar_Error(32);
+                resultado = FALSE;
+            }
         }
     }
     else
@@ -872,8 +881,16 @@ boolean ValidarGuardar(String s_1, Arbol a)
         }
         else
         {
-            Mostrar_Error(26);
-            resultado = FALSE;
+            if ( ContarPalabras(s_1) == 0 )
+            {
+                Mostrar_Error(26);
+                resultado = FALSE;
+            }
+            else
+            {
+                Mostrar_Error(32);
+                resultado = FALSE;
+            }
         }
     }
     else
@@ -968,7 +985,280 @@ boolean ValidarGuardar(String s_1, Arbol a)
     return resultado;
 }
 
+//Se establece el comando Guardar. A raiz del nombre de archivo en s_1, se encuentra al polinomio en el arbol y se lo guarda
+//en el archivo especificado.
+void Guardar(String s_1, Arbol a)
+{
+    String string_2;
+    int largo_int = strlar(s_1);
+    int i=0, j=0;
 
+    string_2 = new char[largo_int+1];
+    string_2[largo_int] = '\0';
 
+    while ( s_1[i] != ' ' )
+    {
+        string_2[j] = s_1[i];
+        i++;
+        j++;
+    }
 
+    //Termino el string_2 para topearlo hasta donde se leyo del string_1
+    string_2[j] = '\0';
+
+    //Se continua cortando el string_1, ahora ya con miras a validar el conjunto de numeros cargados
+    //Se sacan los espacios iniciales si los hubiera
+    while ( s_1[i] == ' ' )
+        i++;
+
+    String string_3;
+    //Notar que la variable i se deja como esta, porque ya arranca desde donde se corto el nombre del polinomio
+    j=0;
+
+    //Se define string_3 con el tamaño de string_1 inicialmente, ya que no se sabe cuanto es el largo final de lo escrito
+    string_3 = new char[largo_int+1];
+    string_3[largo_int] = '\0';
+
+    while ( (s_1[i] != ' ') && (s_1[i] != '\0') )
+    {
+        string_3[j] = s_1[i];
+        i++;
+        j++;
+    }
+
+    //Termino el string_3 para topearlo hasta donde se leyo del string_1
+    string_3[j] = '\0';
+
+    //Llegados a este punto, tendre en:
+    // - string_2: El nombre del polinomio a guardarse
+    // - string_3: El nombre del archivo
+
+    //Encuentro el polinomio en el arbol
+    Polinomio pol_1 = EncontrarPolinomio(a, string_2);
+
+    //Abro el archivo para escritura, si ya existe uno, se sobreescribira
+    FILE * stream;
+    stream = fopen(string_3,"wb");
+
+    //Bajo la lista de terminos en el archivo especificado
+    BajarLista(stream, DarTerminos(pol_1));
+
+    //Cierro el archivo
+    fclose (stream);
+
+    //Devuelvo el ok
+    printf(" Resultado:        polinomio almacenado correctamente en ");
+    print(string_3);
+    printf("\n");
+
+    //Destruyo los sting dinamicos auxiliares
+    strdestruir(string_2);
+    strdestruir(string_3);
+}
+
+//Se valida el comando Recuperar. Se revisa que el archivo al cual se hace referencia exista en disco, que el nombre y la extension
+//sean validos, y que el nombre del nuevo polinomio que se tiene que crear sea alfanumerico y que no exista en este momento
+//en el sistema.
+boolean ValidarRecuperar(String s_1, Arbol a)
+{
+    boolean resultado = TRUE;
+
+    //1era validacion: Se debera ingresar minimamente 2 palabras: el nombre del nuevo polinomio y un numero entero
+    if(ContarPalabras(s_1) != 2)
+    {
+        if ( ContarPalabras(s_1) == 1 )
+        {
+            Mostrar_Error(25);
+            resultado = FALSE;
+        }
+        else
+        {
+            if ( ContarPalabras(s_1) == 0 )
+            {
+                Mostrar_Error(31);
+                resultado = FALSE;
+            }
+            else
+            {
+                Mostrar_Error(32);
+                resultado = FALSE;
+            }
+        }
+    }
+    else
+    {
+        //2 Validacion: el nombre del polinomio ingresado tiene que ser Alfanumerico
+        String string_2;
+        int largo_int = strlar(s_1);
+        int i=0, j=0;
+
+        //Se define string_2 con el tamaño de string_1 inicialmente, ya que no se sabe cuanto es el largo final de lo escrito
+        string_2 = new char[largo_int+1];
+        string_2[largo_int] = '\0';
+
+        while ( s_1[i] != ' ' )
+        {
+            string_2[j] = s_1[i];
+            i++;
+            j++;
+        }
+
+        //Termino el string_2 para topearlo hasta donde se leyo del string_1
+        string_2[j] = '\0';
+
+        //Al finalizar, en string_2 tendre cargado el posible nombre del polinomio
+        if( !ValidarAlfanumerico(string_2) )
+        {
+            //Si el nombre no es alfanumerico, dara el error correspondiente
+            Mostrar_Error(27);
+            resultado = FALSE;
+        }
+        else
+        {
+            //3era validacion: El polinomio existe en el arbol
+            if ( ExistePolinomio(a, string_2) )
+            {
+                //Si existe algun polinomio con ese nombre, dara el error correspondiente
+                Mostrar_Error(33);
+                resultado = FALSE;
+            }
+
+            else
+            {
+                //Se continua cortando el string_1, ahora ya con miras a validar el conjunto de numeros cargados
+                //Se sacan los espacios iniciales si los hubiera
+                while ( s_1[i] == ' ' )
+                    i++;
+
+                String string_3;
+                //Notar que la variable i se deja como esta, porque ya arranca desde donde se corto el nombre del polinomio
+                j=0;
+
+                //Se define string_3 con el tamaño de string_1 inicialmente, ya que no se sabe cuanto es el largo final de lo escrito
+                string_3 = new char[largo_int+1];
+                string_3[largo_int] = '\0';
+
+                while ( (s_1[i] != ' ') && (s_1[i] != '\0') )
+                {
+                    string_3[j] = s_1[i];
+                    i++;
+                    j++;
+                }
+
+                //Termino el string_3 para topearlo hasta donde se leyo del string_1
+                string_3[j] = '\0';
+
+                if( !ValidarAlfanumericoParaArchivo(string_3) )
+                {
+                    //Si el nombre no es alfanumerico, dara el error correspondiente
+                    Mostrar_Error(29);
+                    resultado = FALSE;
+                }
+                else
+                {
+                    if( !ValidarExtension(string_3) )
+                    {
+                        //Si el nombre no es alfanumerico, dara el error correspondiente
+                        Mostrar_Error(30);
+                        resultado = FALSE;
+                    }
+                    else
+                    {
+                        //Validacion final: que el archivo exista efectivamente en el sistema
+                        if( !Arch_Existe(string_3) )
+                        {
+                            Mostrar_Error(34);
+                            resultado = FALSE;
+                        }
+                    }
+
+                }
+
+                //Elimino string_3 de la memoria
+                strdestruir(string_3);
+            }
+        }
+
+        //Elimino string_2 de la memoria
+        strdestruir(string_2);
+    }
+
+    return resultado;
+}
+
+//Se establece el comando Recuperar. Se crea en memoria el nuevo polinomio con el nombre especificado, y se lo inserta en el arbol.
+void Recuperar(String s_1, Arbol &a)
+{
+    String string_2;
+    int largo_int = strlar(s_1);
+    int i=0, j=0;
+
+    string_2 = new char[largo_int+1];
+    string_2[largo_int] = '\0';
+
+    while ( s_1[i] != ' ' )
+    {
+        string_2[j] = s_1[i];
+        i++;
+        j++;
+    }
+
+    //Termino el string_2 para topearlo hasta donde se leyo del string_1
+    string_2[j] = '\0';
+
+    //Se continua cortando el string_1, ahora ya con miras a validar el conjunto de numeros cargados
+    //Se sacan los espacios iniciales si los hubiera
+    while ( s_1[i] == ' ' )
+        i++;
+
+    String string_3;
+    //Notar que la variable i se deja como esta, porque ya arranca desde donde se corto el nombre del polinomio
+    j=0;
+
+    //Se define string_3 con el tamaño de string_1 inicialmente, ya que no se sabe cuanto es el largo final de lo escrito
+    string_3 = new char[largo_int+1];
+    string_3[largo_int] = '\0';
+
+    while ( (s_1[i] != ' ') && (s_1[i] != '\0') )
+    {
+        string_3[j] = s_1[i];
+        i++;
+        j++;
+    }
+
+    //Termino el string_3 para topearlo hasta donde se leyo del string_1
+    string_3[j] = '\0';
+
+    //Llegados a este punto, tendre en:
+    // - string_2: El nombre del polinomio nuevo a crear
+    // - string_3: El nombre del archivo que contiene los terminos a ser leidos
+
+    //Creo una nueva lista y un nuevo polinomio para almacenar la informacion leida
+    Polinomio pol_1;
+    Lista L;
+    Crear_Lista(L);
+
+    //Abro el archivo para lectura
+    FILE * stream;
+    stream = fopen(string_3,"rb");
+
+    //Subo la lista de terminos en base el archivo especificado
+    SubirLista(stream, L);
+
+    //Cierro el archivo
+    fclose(stream);
+
+    //Genero el nuevo polinomio y lo ingreso en el arbol
+    Cargar_Polinomio(pol_1, string_2, L);
+    Insert(a, pol_1);
+
+    //Devuelvo el ok
+    printf(" Resultado:        ");
+    Mostrar_Polinomio(pol_1);
+    printf("\n");
+
+    //Destruyo los sting dinamicos auxiliares
+    strdestruir(string_2);
+    strdestruir(string_3);
+}
 

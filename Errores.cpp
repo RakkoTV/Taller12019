@@ -98,6 +98,18 @@ void Mostrar_Error(int codigo)
         case 30:
             printf(" Resultado:        El nombre del archivo debe tener minimo 1 letra y finalizar en '.txt'\n");
             break;
+        case 31:
+            printf(" Resultado:        Debe ingresar el nombre del nuevo polinomio seguido del archivo a leer para recuperarlo\n");
+            break;
+        case 32:
+            printf(" Resultado:        Demasiadas palabras ingresadas, vuelva a intentarlo\n");
+            break;
+        case 33:
+            printf(" Resultado:        El nombre del polinomio a crear ya existe en el arbol actualmente, reintente\n");
+            break;
+        case 34:
+            printf(" Resultado:        El archivo no existe en disco actualmente\n");
+            break;
     }
 }
 

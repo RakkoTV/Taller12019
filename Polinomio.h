@@ -35,12 +35,12 @@ void BorrarPolinomio(Polinomio &P);
 //Se bajara en el archivo stream la totalidad del polinomio. En realidad, el nombre se lo descarta y se guarda solo la lista de terminos
 //separados por espacio en el mismo.
 //PRECONDICION: El archivo ya fue abierto previamente, y en modo "wb" o "ab"
-void BajarPolinomio(FILE * stream, Polinomio P);
+//void BajarPolinomio(FILE * stream, Polinomio P);
 
 //Leera del archivo apuntado por stream, y lo levantara en memoria como un nuevo Polinomio creando la lista
 //de terminos asociados (leyendo uno a uno) y usando el nombre de s_1 como nombre del polinomio.
 //Se devolvera el polinomio creado.
 //PRECONDICION: stream ya fue abierto previamente, y en modo "rb"
-Polinomio SubirPolinomio(FILE * stream, String s_1);
+//Polinomio SubirPolinomio(FILE * stream, String s_1);
 
 #endif // POLINOMIO_H_INCLUDED

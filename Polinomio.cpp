@@ -37,14 +37,3 @@ Lista DarTerminos(Polinomio P)
     return P.Lterminos;
 }
 
-void BajarPolinomio(Polinomio P, String nomArch)
-{
-
-}
-
-
-Polinomio SubirPolinomio(FILE * stream, String s_1)
-{
-
-}
-

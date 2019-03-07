@@ -45,9 +45,6 @@ void BajarLista(FILE * stream, Lista L);
 //PRECONDICION: stream ya fue abierto previamente, y en modo "rb"
 void SubirLista(FILE * stream, Lista &L);
 
-//INSERTA DE FORMA ORDENADA
-void InsOrdenada(Lista &L, Termino Ter);
-
 //OPERACIONES (SUMA, MULTIPLICACION)
 Lista SumarPoli(Lista lista_1, Lista lista_2);
 

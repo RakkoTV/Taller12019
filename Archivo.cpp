@@ -13,9 +13,13 @@ boolean Arch_Existe(String nomach)
 {
     boolean Ex=FALSE;
 
-    if(fopen(nomach,"rb")!=NULL)
+    FILE * stream;
+    stream = fopen(nomach,"rb");
+
+    if(stream!=NULL)
         Ex=TRUE;
 
+    fclose(stream);
     return Ex;
 }
 
