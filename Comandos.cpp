@@ -970,6 +970,20 @@ boolean ValidarGuardar(String s_1, Arbol a)
                         Mostrar_Error(30);
                         resultado = FALSE;
                     }
+                    else
+                    {
+                        //Ahora hay 2 opciones: Si el archivo existe en disco, se tiene que mostrar el cartel para
+                        //saber si se sobreescribira o no.
+                        if( Arch_Existe(string_3) )
+                        {
+                            //Si no se desea sobreescribir, se mostrara un mensaje diciendo que no se guarda el polinomio y listo
+                            if( !MostrarSobreEscribir() )
+                            {
+                                Mostrar_Error(35);
+                                resultado = FALSE;
+                            }
+                        }
+                    }
 
                 }
 
@@ -1260,5 +1274,12 @@ void Recuperar(String s_1, Arbol &a)
     //Destruyo los sting dinamicos auxiliares
     strdestruir(string_2);
     strdestruir(string_3);
+}
+
+//Se establece el comando Salir. Se termina la ejecucion del sistema y se libera toda la memoria dinamica creada por el arbol.
+//Para eso, se llama a las funciones de eliminacion de termino, lista_terminos, polinomio y arbol en cada caso.
+void SalirSistema(Arbol &a)
+{
+    BorrarArbol(a);
 }
 

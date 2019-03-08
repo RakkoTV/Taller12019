@@ -45,5 +45,8 @@ void MostrarMenu()
 
     //Libero toda la memoria, desde lo mas pequeño a lo mas grande
     strdestruir(s_1);
-    //SalirSistema(a);
+    SalirSistema(a);
 }
+
+
+

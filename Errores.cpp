@@ -57,7 +57,7 @@ void Mostrar_Error(int codigo)
             printf(" Resultado:        Debe ingresar un numero entero\n");
             break;
         case 17:
-            printf(" Resultado:        Falta ingresar los polinomios a multiplicar\n");
+            printf(" Resultado:        Falta ingresar los polinomios a operar\n");
             break;
         case 18:
             printf(" Resultado:        Se deben ingresar exactamente 3 nombres de polinomios\n");
@@ -110,6 +110,9 @@ void Mostrar_Error(int codigo)
         case 34:
             printf(" Resultado:        El archivo no existe en disco actualmente\n");
             break;
+        case 35:
+            printf(" Resultado:        El polinomio NO fue guardado en el archivo\n");
+            break;
     }
 }
 
@@ -118,5 +121,44 @@ void Mostrar_Error(int codigo)
 void Mostrar_Ayuda()
 {
     printf(" Resultado:        Las instrucciones se listaran a continuacion...\n");
+}
+
+//Muestra la opcion de sobreescribir un archivo, para el comando Guardar
+boolean MostrarSobreEscribir()
+{
+    char letra = 'A';
+    boolean salir=FALSE, resultado;
+
+    while ( salir == FALSE )
+    {
+        printf(" Resultado:        El archivo ya existe en el disco. Desea sobreescribirlo?[s/n] ");
+        scanf("%c",&letra);
+        fflush(stdin);
+
+        switch(letra)
+        {
+            case 'n':
+            case 'N':
+            {
+                salir = TRUE;
+                resultado = FALSE;
+                break;
+            }
+            case 's':
+            case 'S':
+            {
+                salir = TRUE;
+                resultado = TRUE;
+                break;
+            }
+            default:
+            {
+                printf("                   ERROR: Ingrese s/n\n\n");
+                break;
+            }
+        }
+    }
+
+    return resultado;
 }
 

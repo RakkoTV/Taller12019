@@ -12,4 +12,7 @@ void Mostrar_Error(int codigo);
 //la lista de comandos al usuario final
 void Mostrar_Ayuda();
 
+//Muestra la opcion de sobreescribir un archivo, para el comando Guardar
+boolean MostrarSobreEscribir();
+
 #endif // ERRORES_H_INCLUDED

@@ -253,11 +253,6 @@ Lista MultiplicarPoli(Lista lista_1, Lista lista_2)
     aux_1 = NULL;
     aux_2 = NULL;
 
-    //--> MOSTRAR A LA PROFE PORQUE NO SE ELIMINA LA LISTA <--
-    //printf(" - ");
-    //MostrarLista(resultado_inicial);
-    //printf(" - \n");
-
     //Devuelvo la lista ordenada
     return resultado_final;
 }
@@ -282,6 +277,7 @@ void BorrarLista(Lista &L)
     {
         BorrarLista(L->sig);
         delete L;
+        L = NULL;
     }
 }
 
@@ -313,5 +309,36 @@ void SubirLista(FILE * stream, Lista &L)
         InsFront(L, t_1);
         SubirTermino(stream, t_1);
     }
+}
+
+//Devolvera la cantidad de terminos de la lista
+int CantidadNodosLista(Lista L)
+{
+    if( L == NULL)
+    {
+        return 0;
+    }
+    else
+    {
+        return 1 + CantidadNodosLista(L->sig);
+    }
+}
+
+boolean TodaListaConCeros(Lista L)
+{
+    boolean resultado = TRUE;
+    Lista aux_1;
+
+    aux_1 = L;
+    while( (aux_1 != NULL) && (resultado == TRUE) )
+    {
+        if( DarCoeficiente(aux_1->info) != 0 )
+            resultado = FALSE;
+
+        aux_1 = aux_1->sig;
+    }
+
+    aux_1 = NULL;
+    return resultado;
 }
 

@@ -45,6 +45,12 @@ void BajarLista(FILE * stream, Lista L);
 //PRECONDICION: stream ya fue abierto previamente, y en modo "rb"
 void SubirLista(FILE * stream, Lista &L);
 
+//Devolvera la cantidad de terminos de la lista
+int CantidadNodosLista(Lista L);
+
+//Para el muestreo de terminos 0 totales
+boolean TodaListaConCeros(Lista L);
+
 //OPERACIONES (SUMA, MULTIPLICACION)
 Lista SumarPoli(Lista lista_1, Lista lista_2);
 

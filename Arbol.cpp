@@ -179,5 +179,17 @@ void MostrarArbol(Arbol a)
 
 //Se recorrera todos los nodos del arbol, eliminando la memoria almacenada por cada uno. Se invocara a las funciones de eliminacion
 //de BorrarPolinomio, BorrarLista y BorrarTerminos.
-void BorrarArbol(Arbol &a);
+void BorrarArbol(Arbol &a)
+{
+    if ( a != NULL )
+    {
+        BorrarArbol(a->HIzq);
+        BorrarArbol(a->HDer);
+
+        //Borro la raiz
+        BorrarPolinomio(a->info);
+        delete a;
+        a = NULL;
+    }
+}
 

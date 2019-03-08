@@ -52,7 +52,7 @@ Polinomio EncontrarPolinomio(Arbol a, String s_1);
 void MostrarArbol(Arbol a);
 
 //Se recorrera todos los nodos del arbol, eliminando la memoria almacenada por cada uno. Se invocara a las funciones de eliminacion
-//de BorrarPolinomio, BorrarLista y BorrarTerminos.
+//de BorrarPolinomio, BorrarLista y BorrarTerminos. La recorrida sera en postorden.
 void BorrarArbol(Arbol &a);
 
 #endif // ARBOL_H_INCLUDED
