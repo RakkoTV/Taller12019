@@ -27,13 +27,15 @@ void MostrarMenu()
         {
             case ERROR:
                 Mostrar_Error(1);
+                printf("\n");
+                printf("  INGRESE COMANDO: ayuda -> para desplegar ayuda \n");
                 break;
             case AYUDA:
                 Mostrar_Ayuda();
                 break;
             case SALIR:
             {
-                printf(" Resultado:        Hasta la proxima\n");
+                printf(" \t Hasta la proxima  ^ _ ^ \n");
                 salir = TRUE;
                 break;
             }

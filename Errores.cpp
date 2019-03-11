@@ -9,7 +9,7 @@ void Mostrar_Error(int codigo)
     switch(codigo)
     {
         case 1:
-            printf(" Resultado:        Comando no reconocido, vuelva a ingresarlo\n");
+            printf(" Resultado:        Comando no reconocido , vuelva a ingresarlo\n");
             break;
         case 2:
             printf(" Resultado:        Debe ingresar un nombre de Polinomio valido. El mismo debe ser Alfanumerico\n");
@@ -120,7 +120,31 @@ void Mostrar_Error(int codigo)
 //la lista de comandos al usuario final
 void Mostrar_Ayuda()
 {
-    printf(" Resultado:        Las instrucciones se listaran a continuacion...\n");
+    printf("--SINTAXIS DE COMANDOS--\n");
+    printf("\n");
+    printf("Sintaxis del comando CREAR: crear <nombre polinomio> <coef 1> <coef N> \n");
+    printf("Sintaxis del comando SUMAR: sumar <nombre polinomio nuevo> <nombre polinomio 1> <nombre polinomio 2> \n");
+    printf("Sintaxis del comando MULTIPLICAR: multiplicar <nombre polinomio nuevo> <nombre polinomio 1> <nombre polinomio 2> \n");
+    printf("Sintaxis del comando EVALUAR: evaluar <nombre polinomio> <numero entero> \n");
+    printf("Sintaxis del comando ESRAIZ: esraiz <nombre polinomio> <numero entero> \n");
+    printf("Sintaxis del comando MOSTRAR: mostrar \n");
+    printf("Sintaxis del comando GUARDAR: guardar <nombre polinomio> <nombre archivo.txt> \n");
+    printf("Sintaxis del comando SALIR: salir \n");
+
+    printf("\n");
+    printf("--DESCRIPCION DE COMANDOS--\n");
+    print("\n");
+    printf("Comando CREAR: Crea un nuevo polinomio con el nombre en primer lugar y N coeficientes luego del nombre \n");
+    printf("Comando SUMAR: Crea un nuevo polinomio cuyo nombre sera el primer ingresado y contendra la suma de los otros dos \n");
+    printf("Comando MULTIPLICAR: Crea un nuevo polinomio cuyo nombre sera el primer ingresado y contendra la multiplicacion de los otros dos \n");
+    printf("Comando EVALUAR: Despliega por pantalla el valor que se obtiene al susituir las x del polinomio ingresado, por el entero ingresado en segundo lugar \n");
+    printf("Comando ESRAIZ:  Determina si el numero ingresado en segundo lugar es raiz del polinomio cuyo nombre se ingresa en primer lugar \n");
+    printf("Comando MOSTRAR: Lista por pantalla los polinomios existentes en memoria \n");
+    printf("Comando GUARDAR: Almacena el polinomio cuyo nombre se ingresa en primer lugar en un archivo con extension .txt cuyo nombre se ingresa en segundo lugar \n");
+    printf("comando SALIR: sale del programa \n");
+
+
+
 }
 
 //Muestra la opcion de sobreescribir un archivo, para el comando Guardar
